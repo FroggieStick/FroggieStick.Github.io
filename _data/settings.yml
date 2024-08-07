@@ -1,7 +1,7 @@
 #-------------------------------
 # Site Settings
-title: FroggieSec
-logo: # You can add own logo. For example '/images/logo.png'.
+title: The Pond
+logo: `/images/logo.png` # You can add own logo. For example '/images/logo.png'.
 description: SecOps and HTB Write Ups
 
 
@@ -23,7 +23,7 @@ menu-settings:
 # Author Settings
 author:
   name: FroggieSec
-  avatar: '/images/15.jpg'
+  avatar: '/images/logo.png'
 
 
 #-------------------------------
