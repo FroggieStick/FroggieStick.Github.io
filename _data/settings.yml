@@ -1,7 +1,7 @@
 #-------------------------------
 # Site Settings
 title: The Pond
-logo: `/images/logo.png` # You can add own logo. For example '/images/logo.png'.
+logo: '/images/logo.png' # You can add own logo. For example '/images/logo.png'.
 description: SecOps and HTB Write Ups
 
 
