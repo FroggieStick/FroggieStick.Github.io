@@ -5,7 +5,6 @@ description: Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum
 date:   2023-05-29 18:05:55 +0300
 image:  '/images/12.jpg'
 tags:   [Fashion, Story]
-featured: true
 ---
 Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Haec et tu ita posuisti, et verba vestra sunt. Idemne potest esse dies saepius, qui semel fuit? Ampulla enim sit necne sit, quis non iure optimo irrideatur, si laboret? Ego vero volo in virtute vim esse quam maximam; Serpere anguiculos, nare anaticulas, evolare merulas, cornibus uti videmus boves, nepas aculeis. Conferam tecum, quam cuique verso rem subicias. Si longus, levis ampulla enim sit necne vel omnia vel partes genere plurima et maxima.
 
