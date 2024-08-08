@@ -15,7 +15,7 @@ Corporate is an insane-difficulty Linux machine featuring a feature-rich web att
 ##### Rating: Insane ; Platform: Linux
 
 # Reconnaissance
-* #### Nmapping: {% highlight markdown %} nmap -sC -sV -A BoxIpAddress > CorporateNmap.txt {% endhighlight %}
+#### Nmapping: {% highlight markdown %} nmap -sC -sV -A BoxIpAddress > CorporateNmap.txt {% endhighlight %}
 
 {% highlight markdown %}
 PORT   STATE SERVICE VERSION
@@ -25,3 +25,13 @@ PORT   STATE SERVICE VERSION
 
 It appears we have only one port worth looking into. There is a web server running offering up a website on port 80.
 * The title of the website is: Corporate.HTB
+
+##### Ffufing:
+{% highlight markdown %}
+ ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt  -u http://corporate.htb -H 'Host: FUZZ.corporate.htb' -fs 175
+ {% endhighlight %}
+ <b>Subdomains:</b>
+	* support.corporate.htb
+	* git.corporate.htb
+	* sso.corporate.htb
+	* people.corporate.htb
