@@ -92,9 +92,10 @@ blockquote {
   padding: 34px 20px 34px 64px;
   margin-bottom: 0;
   font-size: 28px;
-  line-height: 36px;
+  line-height: 1.3px;
   font-weight: 900;
   color: $white;
+  word-wrap: break-word;
 
   &:before {
     content: '\201C';
