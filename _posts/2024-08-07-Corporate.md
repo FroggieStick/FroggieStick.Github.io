@@ -15,7 +15,7 @@ Corporate is an insane-difficulty Linux machine featuring a feature-rich web att
 ##### Rating: Insane ; Platform: Linux
 
 # Reconnaissance
-#### Nmapping: {% highlight markdown %} nmap -sC -sV -A BoxIpAddress > CorporateNmap.txt {% endhighlight %}
+##### Nmapping: {% highlight markdown %} nmap -sC -sV -A BoxIpAddress > CorporateNmap.txt {% endhighlight %}
 
 {% highlight markdown %}
 PORT   STATE SERVICE VERSION
@@ -36,4 +36,12 @@ It appears we have only one port worth looking into. There is a web server runni
 * sso.corporate.htb
 * people.corporate.htb
 
-Lets add these subdomains to your <mark>/etc/hosts</mark>file.
+Lets add these subdomains to your <mark>/etc/hosts</mark> file.
+
+🐸 ##### Web Exploration:
+After poking around the main site some we find a chat bot. It appears to be located at the <link>http://support.corporate.htb</link> subdomain.
+
+We are able to send some "html" scripts to the bot and it relays them back to us. It appears this bot maybe vulnerable to some <bold>XSS Injection</bold>.
+After attempting some scripts I noticed that the bot is parsing javascript. We attempt some simple javascript xss but looking at the response we notice that the scirpts are being blocked by <bold>CSA</bold> or Content-Secutiry-Policy.
+You can read more about CSA here <link>https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</link>.
+
