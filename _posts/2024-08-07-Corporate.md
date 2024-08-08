@@ -45,3 +45,4 @@ We are able to send some "html" scripts to the bot and it relays them back to us
 After attempting some scripts I noticed that the bot is parsing javascript. We attempt some simple javascript xss but looking at the response we notice that the scirpts are being blocked by <bold>CSA</bold> or Content-Secutiry-Policy.
 You can read more about CSA here <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"></a>.
 
+<blockquote>Testing another block quote. I wonder how this will look.</blockquote>
