@@ -38,7 +38,7 @@ It appears we have only one port worth looking into. There is a web server runni
 
 Lets add these subdomains to your <mark>/etc/hosts</mark> file.
 
-🐸 ##### Web Exploration:
+##### 🐸 Web Exploration: 
 After poking around the main site some we find a chat bot. It appears to be located at the <link>http://support.corporate.htb</link> subdomain.
 
 We are able to send some "html" scripts to the bot and it relays them back to us. It appears this bot maybe vulnerable to some <bold>XSS Injection</bold>.
