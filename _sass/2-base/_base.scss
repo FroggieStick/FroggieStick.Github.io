@@ -97,10 +97,10 @@ blockquote {
   color: #a9ca6f;
 
   &:before {
-    content: '\201C';
+    content: '🐸';
     position: absolute;
     top: 0.59em;
-    left: -0.01em;
+    left: -0.10em;
     font-size: 4em;
     color: $brand-color;
   }
@@ -218,7 +218,7 @@ table tr:hover {
 }
 
 .gallery-box {
-  margin-bottom: 14px;
+  margin-bottom: 30px;
   em {
     display: inline-block;
     width: 100%;
