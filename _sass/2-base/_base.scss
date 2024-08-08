@@ -97,12 +97,12 @@ blockquote {
   color: #a9ca6f;
 
   &:before {
-    content: '🐸 Froggy Quote:';
+    content: '🐸Info:';
     position: absolute;
     top: 1.3em;
     left: -0.0em;
-    font-size: 2em;
-    color: $brand-color;
+    font-size: 1.5em;
+    color: $brand-color2;
   }
 
   p {
