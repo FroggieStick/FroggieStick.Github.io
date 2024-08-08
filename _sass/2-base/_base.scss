@@ -263,3 +263,9 @@ table tr:hover {
 .lightense-backdrop {
   background-color: $background-color !important;
 }
+
+mark {
+  background-color: $highlightColor; // Change this to your desired highlight color
+  color: $text-color; // Change this to your desired text color
+}
+
