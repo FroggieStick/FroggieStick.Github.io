@@ -39,9 +39,9 @@ It appears we have only one port worth looking into. There is a web server runni
 Lets add these subdomains to your <mark>/etc/hosts</mark> file.
 
 ##### 🐸 Web Exploration: 
-After poking around the main site some we find a chat bot. It appears to be located at the <link>http://support.corporate.htb</link> subdomain.
+After poking around the main site some we find a chat bot. It appears to be located at the <a href="http://support.corporate.htb"></a> subdomain.
 
 We are able to send some "html" scripts to the bot and it relays them back to us. It appears this bot maybe vulnerable to some <bold>XSS Injection</bold>.
 After attempting some scripts I noticed that the bot is parsing javascript. We attempt some simple javascript xss but looking at the response we notice that the scirpts are being blocked by <bold>CSA</bold> or Content-Secutiry-Policy.
-You can read more about CSA here <link>https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</link>.
+You can read more about CSA here <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"></a>.
 
