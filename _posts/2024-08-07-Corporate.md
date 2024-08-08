@@ -24,4 +24,4 @@ PORT   STATE SERVICE VERSION
 {% endhighlight %}
 
 It appears we have only one port worth looking into. There is a web server running offering up a website on port 80.
-    - The title of the website is: Corporate.HTB
+* The title of the website is: Corporate.HTB
