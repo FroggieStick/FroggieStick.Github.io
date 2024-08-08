@@ -31,7 +31,9 @@ It appears we have only one port worth looking into. There is a web server runni
  ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt  -u http://corporate.htb -H 'Host: FUZZ.corporate.htb' -fs 175
  {% endhighlight %}
  <b>Subdomains:</b>
-	* support.corporate.htb
-	* git.corporate.htb
-	* sso.corporate.htb
-	* people.corporate.htb
+* support.corporate.htb
+* git.corporate.htb
+* sso.corporate.htb
+* people.corporate.htb
+
+Lets add these subdomains to your <mark>/etc/hosts</mark>file.
