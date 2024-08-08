@@ -98,8 +98,7 @@ blockquote {
 
   &:before {
     content: '🐸 Info:';
-    position: absolute;
-    top: 2.3em;
+    position: relative;
     left: -0.0em;
     font-size: 1.5em;
     color: $brand-color2;
