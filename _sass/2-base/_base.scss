@@ -129,34 +129,34 @@ blockquote {
 pre {
   overflow: auto;
   font-size: 14px; // Adjust as needed
-  white-space: pre-wrap;
   word-wrap: break-word;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
   font-style: normal;
+  color: $monospace-text-color;
 }
 
 // Base styles for <pre> elements
 code {
   overflow: auto;
   font-size: 14px; // Adjust as needed
-  white-space: pre-wrap;
   word-wrap: break-word;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
   font-style: normal;
+  color: $monospace-text-color;
 }
 
 // Styles for <code> elements with language classes
 code[class*=language-], pre[class*=language-] {
-  white-space: pre-wrap;
   line-height: inherit;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
   font-style: normal;
+  color: $monospace-text-color;
 }
 
 // Specific styles for elements with .jetbrains-mono-code class (if needed)
@@ -165,6 +165,7 @@ code[class*=language-], pre[class*=language-] {
   font-optical-sizing: auto;
   font-weight: $font-weight;
   font-style: normal;
+  color: $monospace-text-color;
 }
 
 img, .lightense-wrap {
