@@ -139,6 +139,20 @@ pre {
   font-style: normal;
 }
 
+// Base styles for <pre> elements
+code {
+  overflow: auto;
+  padding: 20px;
+  font-size: 14px; // Adjust as needed
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
+}
+
 // Styles for <code> elements with language classes
 code[class*=language-], pre[class*=language-] {
   white-space: pre-wrap;
