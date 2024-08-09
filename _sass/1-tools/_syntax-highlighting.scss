@@ -45,6 +45,8 @@ $orange: #fe8019;
   .kp    { font-weight: bold } // Keyword.Pseudo
   .kr    { font-weight: bold } // Keyword.Reserved
   .kt    { color: $green; font-weight: bold } // Keyword.Type
+  .kn    { color: $red; } // Keyword.Knowledge
+  .n     { color: $white } // Literal.Names
   .m     { color: $green } // Literal.Number
   .s     { color: $red } // Literal.String
   .na    { color: $aqua } // Name.Attribute
@@ -63,6 +65,7 @@ $orange: #fe8019;
   .mh    { color: $green } // Literal.Number.Hex
   .mi    { color: $green } // Literal.Number.Integer
   .mo    { color: $green } // Literal.Number.Oct
+  .s     { color: $purple } // Literal.string
   .sb    { color: $red } // Literal.String.Backtick
   .sc    { color: $red } // Literal.String.Char
   .sd    { color: $red } // Literal.String.Doc
