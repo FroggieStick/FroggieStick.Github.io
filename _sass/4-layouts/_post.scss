@@ -415,3 +415,19 @@
   margin-right: 10px; /* Space between icon and text */
   font-size: 1.5em; /* Adjust size as needed */
 }
+
+.post-content pre,
+.post-content code {
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
+}
+
+.jetbrains-mono-code {
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
+}
+
