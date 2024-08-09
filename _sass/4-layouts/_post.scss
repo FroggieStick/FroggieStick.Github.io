@@ -413,7 +413,6 @@
 
 .checklist li::before {
   content: "\f52e"; /* Unicode for the frog icon */
-  font-family: "FontAwesome"; /* Specify the FontAwesome font family */
   margin-right: 10px; /* Space between icon and text */
   font-size: 1.5em; /* Adjust size as needed */
 }
