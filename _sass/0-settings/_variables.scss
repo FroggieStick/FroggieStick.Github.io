@@ -37,6 +37,9 @@ $base-font-weight: normal;
 $base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
 $base-line-height: 1.7;
 
+// Define monospace font
+$monospace-font-family: 'JetBrainsMono NF Medium', monospace;
+
 // Headings
 $heading-font-weight: 900;
 $heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
@@ -51,3 +54,4 @@ $font-size-h6:  15px;
 
 $heading-line-height: 1.4em;
 $heading-letter-spacing: .5px;
+
