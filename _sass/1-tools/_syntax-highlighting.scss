@@ -14,10 +14,10 @@ $orange: #fe8019;
 .highlight {
   border-radius: 4px;
   color: $white;
-  background: $blue;
+  background: $blue-dark;
 
   .highlighter-rouge & {
-    background: $blue;
+    background: $blue-dark;
   }
 
   .c     { color: $green; font-style: italic } // Comment
