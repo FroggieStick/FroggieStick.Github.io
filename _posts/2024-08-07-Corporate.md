@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Corporate
-description: Corporate is an insane-difficulty Linux machine featuring a feature-rich web attack surface that requires chaining various vulnerabilities to bypass strict Content Security Policies (CSP) and steal an authentication cookie via Cross-Site Scripting (XSS). ...
+description: <b>INSANE</b> - Corporate is an insane-difficulty Linux machine featuring a feature-rich web attack surface that requires chaining various vulnerabilities to bypass strict Content Security Policies (CSP) and steal an authentication cookie via Cross-Site Scripting (XSS). ...
 date:   2024-08-07 16:03:00 -0500
 image:  '/images/corporate01.jpg'
 tags:   [HackTheBox, CTF, Retired, Windows, Insane]
