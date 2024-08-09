@@ -268,28 +268,28 @@ mark {
   color: $text-color; // Change this to your desired text color
 }
 
-// SCSS
-ul {
-  list-style: none; /* Remove default list style */
-  padding: 0; /* Remove padding */
-}
+// // SCSS
+// ul {
+//   list-style: none; /* Remove default list style */
+//   padding: 0; /* Remove padding */
+// }
 
-li {
-  position: relative;
-  padding-left: 30px; /* Space for icon */
-}
+// li {
+//   position: relative;
+//   padding-left: 30px; /* Space for icon */
+// }
 
-li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: "FontAwesome";
-  font-size: 1.5em; /* Adjust size as needed */
-}
+// li::before {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   font-family: "FontAwesome";
+//   font-size: 1.5em; /* Adjust size as needed */
+// }
 
-.checked::before {
-  content: "\f52e"; /* Unicode for the frog icon */
-  color: green; /* Customize color */
-}
+// .checked::before {
+//   content: "\f52e"; /* Unicode for the frog icon */
+//   color: green; /* Customize color */
+// }
