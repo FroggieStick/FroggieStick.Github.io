@@ -276,28 +276,10 @@ mark {
   font-style: normal;
 }
 
-// // SCSS
-// ul {
-//   list-style: none; /* Remove default list style */
-//   padding: 0; /* Remove padding */
-// }
+.jetbrains-mono-code {
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
+}
 
-// li {
-//   position: relative;
-//   padding-left: 30px; /* Space for icon */
-// }
-
-// li::before {
-//   content: "";
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   font-family: "FontAwesome";
-//   font-size: 1.5em; /* Adjust size as needed */
-// }
-
-// .checked::before {
-//   content: "\f52e"; /* Unicode for the frog icon */
-//   color: green; /* Customize color */
-// }
