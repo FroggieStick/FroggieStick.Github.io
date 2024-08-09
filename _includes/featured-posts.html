@@ -19,8 +19,10 @@
               <div class="article__inner">
 
                 {% if post.featured %}
-                <span><i class="fa-solid fa-heart" style="color: #b8bb26;"></i></span>
-                {% endif %}
+                <span>
+                  <i class="fa-solid fa-heart" style="color: #b8bb26;"></i>
+                </span>
+              {% endif %}
 
                 {% if post.image %}
                 <a class="article__image" href="{{post.url | prepend: site.baseurl}}">
