@@ -125,19 +125,33 @@ blockquote {
   }
 }
 
+// Base styles for <pre> elements
 pre {
   overflow: auto;
   padding: 20px;
-  font-size: 14px;
+  font-size: 14px; // Adjust as needed
   white-space: pre-wrap;
   word-wrap: break-word;
   word-break: break-all;
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
 }
 
+// Styles for <code> elements with language classes
 code[class*=language-], pre[class*=language-] {
   white-space: pre-wrap;
   word-break: break-all;
   line-height: inherit;
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
+}
+
+// Specific styles for elements with .jetbrains-mono-code class (if needed)
+.jetbrains-mono-code {
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
@@ -270,20 +284,5 @@ table tr:hover {
 mark {
   background-color: $highlightColor; // Change this to your desired highlight color
   color: $text-color; // Change this to your desired text color
-}
-
-.post-content pre,
-.post-content code {
-  font-family: $jetbrains-mono-font-family;
-  font-optical-sizing: auto;
-  font-weight: $font-weight;
-  font-style: normal;
-}
-
-.jetbrains-mono-code {
-  font-family: $jetbrains-mono-font-family;
-  font-optical-sizing: auto;
-  font-weight: $font-weight;
-  font-style: normal;
 }
 
