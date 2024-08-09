@@ -138,6 +138,10 @@ code[class*=language-], pre[class*=language-] {
   white-space: pre-wrap;
   word-break: break-all;
   line-height: inherit;
+  font-family: $jetbrains-mono-font-family;
+  font-optical-sizing: auto;
+  font-weight: $font-weight;
+  font-style: normal;
 }
 
 img, .lightense-wrap {
