@@ -128,11 +128,9 @@ blockquote {
 // Base styles for <pre> elements
 pre {
   overflow: auto;
-  padding: 20px;
   font-size: 14px; // Adjust as needed
   white-space: pre-wrap;
   word-wrap: break-word;
-  word-break: break-all;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
@@ -142,11 +140,9 @@ pre {
 // Base styles for <pre> elements
 code {
   overflow: auto;
-  padding: 20px;
   font-size: 14px; // Adjust as needed
   white-space: pre-wrap;
   word-wrap: break-word;
-  word-break: break-all;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
   font-weight: $font-weight;
@@ -156,7 +152,6 @@ code {
 // Styles for <code> elements with language classes
 code[class*=language-], pre[class*=language-] {
   white-space: pre-wrap;
-  word-break: break-all;
   line-height: inherit;
   font-family: $jetbrains-mono-font-family;
   font-optical-sizing: auto;
