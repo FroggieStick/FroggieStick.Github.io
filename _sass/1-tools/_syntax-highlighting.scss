@@ -40,6 +40,7 @@ $orange: #fe8019;
   .gs    { font-weight: bold } // Generic.Strong
   .gu    { color: $white } // Generic.Subheading
   .gt    { color: $red } // Generic.Traceback
+  .k     { color: $yellow } // Keyword
   .kc    { font-weight: bold } // Keyword.Constant
   .kd    { font-weight: bold } // Keyword.Declaration
   .kp    { font-weight: bold } // Keyword.Pseudo
@@ -55,7 +56,7 @@ $orange: #fe8019;
   .no    { color: $aqua } // Name.Constant
   .ni    { color: $purple } // Name.Entity
   .ne    { color: $red; font-weight: bold } // Name.Exception
-  .nf    { color: $red; font-weight: bold } // Name.Function
+  .nf    { color: $blue; font-weight: bold } // Name.Function
   .nn    { color: $yellow } // Name.Namespace
   .nt    { color: $blue } // Name.Tag
   .nv    { color: $aqua } // Name.Variable
