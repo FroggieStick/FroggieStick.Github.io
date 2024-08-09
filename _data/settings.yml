@@ -1,6 +1,6 @@
 #-------------------------------
 # Site Settings
-title: The Pond <i class="fa-solid fa-frog fa-xl" style="color: #b8bb26;"></i>
+title: The Pond 
 logo:  # You can add own logo. For example '/images/logo.png'.
 description: SecOps and HTB Write Ups
 
