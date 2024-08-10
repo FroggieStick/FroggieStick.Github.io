@@ -30,7 +30,7 @@ author:
 # Hero Settings
 hero:
   title: FroggieSec
-  description: SecOps and CTF Writeups
+  description: SecOps and CTF Writeups.
   image: '/images/01.jpg'
 
 
