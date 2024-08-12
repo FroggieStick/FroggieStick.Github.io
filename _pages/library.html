@@ -1,12 +1,18 @@
 ---
-layout: page
+layout: library-page
 title: The Library
 permalink: /library/
 image: '/images/library03.jpg'
 ---
 
-  <!-- begin content -->
-  <main class="content" aria-label="Content">
-    {{ content }}
-  </main>
-  <!-- end content -->
+<div class="container">
+    <div class="row grid">
+      {% if site.posts.size > 0 %}
+        {% for post in paginator.posts %}
+          {% include article-content.html %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  
+  {% include pagination.html %}
