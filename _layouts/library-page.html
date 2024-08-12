@@ -25,6 +25,18 @@ layout: default
 {% endif %}
 <!-- begin hero -->
 
+<div class="container">
+  <div class="row grid">
+    {% if paginator.posts.size > 0 %}
+      {% for post in paginator.posts %}
+        {% include library-article-content.html %}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  {% include pagination.html %}
+</div>
+
 <!-- begin page -->
 <div class="container">
   <article class="page animate">
