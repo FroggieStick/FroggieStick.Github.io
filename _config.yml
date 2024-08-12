@@ -7,7 +7,6 @@ markdown: kramdown
 permalink: /:title
 plugins:
   - jekyll-paginate
-  - jekyll-paginate-v2
   - jekyll-sitemap
 
 # Pagination settings
