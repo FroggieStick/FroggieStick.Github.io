@@ -5,19 +5,6 @@ permalink: /library/
 image: '/images/library03.jpg'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% include head.html %}
-
-</head>
-<body>
-  {% if site.data.settings.google-analytics %}
-    {% include google-analytics.html %}
-  {% endif %}
-
-  {% include header.html %}
-
   <!-- begin content -->
   <main class="content" aria-label="Content">
     {{ content }}
@@ -27,6 +14,3 @@ image: '/images/library03.jpg'
   <div class="top" title="Top"><i class="fa-solid fa-chevron-up"></i></div>
   {% include footer.html %}
   {% include javascripts.html %}
-</body>
-
-</html>
