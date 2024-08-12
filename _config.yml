@@ -1,22 +1,23 @@
-#-------------------------------
-# General Site Settings
-baseurl: "" # The subpath of your site, e.g. /blog
-url: "http://FroggieStick.Github.io/" # The base hostname & protocol for your site, e.g. http://example.com
+# General site settings
+baseurl: ""
+url: "http://FroggieStick.Github.io/"
 
-
-#-------------------------------
 # Build settings
 markdown: kramdown
 permalink: /:title
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
 
+# Pagination settings
 paginate: 8
 paginate_path: "/page/:num"
 
-library_paginate: 8
-library_paginate_path: "/library/page/:num"
+# Library-specific pagination
+paginate_library:
+  enabled: true
+  per_page: 8
+  path: "/library/page/:num"
 
 # Pages Path
 defaults:
