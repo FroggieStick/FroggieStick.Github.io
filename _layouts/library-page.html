@@ -1,48 +1,18 @@
 ---
-layout: default
+layout: library
+title: The Library
+permalink: /library/
+image: '/images/library03.jpg'
 ---
-
-<!-- begin hero -->
-{% if page.image %}
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    </div>
-    <div class="hero__content">
-      <h1 class="hero__title">{{ page.title }}</h1>
-    </div>
-  </div>
-</section>
-{% else %}
-<section class="hero-without-image">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1 class="hero__title">{{ page.title }} </h1>
-    </div>
-  </div>
-</section>
-{% endif %}
-<!-- begin hero -->
 
 <div class="container">
   <div class="row grid">
-    {% if paginator.posts.size > 0 %}
+    {% if site.posts.size > 0 %}
       {% for post in paginator.posts %}
-        {% include article-content.html %}
+        {% include library-article-content.html %}
       {% endfor %}
     {% endif %}
   </div>
-
-  {% include pagination.html %}
 </div>
 
-<!-- begin page -->
-<div class="container">
-  <article class="page animate">
-    <div class="page__content">
-      {{ content }}
-    </div>
-  </article>
-</div>
-<!-- end page -->
+{% include pagination.html %}

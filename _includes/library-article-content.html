@@ -1,6 +1,5 @@
-<div class="article col {% if forloop.index <= 2 and page.url == '/library' %}col-6 col-t-12 grid__post animate article--big{% else %}col-4 col-d-6 col-t-12 grid__post animate{% endif %}">
+<div class="library-article col">
   <div class="library-article__inner">
-
     {% if post.image %}
     <a class="library-article__image" href="{{ post.url | relative_url }}">
       <img class="lazy" data-src="{{ post.image | relative_url }}" alt="{{ post.title }}">
@@ -8,28 +7,27 @@
     {% endif %}
 
     <div class="library-article__content">
-
       <div class="library-article__meta">
         <span class="library-article__minutes">
           {% assign words = post.content | number_of_words %}
-            {% if words < 360 %}
-              1 min read
-            {% else %}
-              {{ words | divided_by:180 }} min read
+          {% if words < 360 %}
+            1 min read
+          {% else %}
+            {{ words | divided_by:180 }} min read
           {% endif %}
-          <time class="library-article__date" datetime="{{ post.date | date_to_xmlschema }}">{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}{{ post.date | date: date_format }}</time>
+          <time class="library-article__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.minima.date_format }}</time>
         </span>
       </div>
 
       <h2 class="library-article__title">{{ post.title }}</h2>
-
       <p class="library-article__excerpt">{{ post.description }}</p>
 
-      <div class="library-rticle__bottom">
-
+      <div class="library-article__bottom">
         {% if site.data.settings.author.avatar %}
         <div class="library-article__author">
-          <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}"><img class="library-article__author-image lazy" data-src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture"></a>
+          <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}">
+            <img class="library-article__author-image lazy" data-src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture">
+          </a>
         </div>
         {% endif %}
 
@@ -47,8 +45,6 @@
           {% endif %}
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
