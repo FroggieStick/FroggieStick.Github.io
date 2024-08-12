@@ -29,7 +29,7 @@ layout: default
   <div class="row grid">
     {% if paginator.posts.size > 0 %}
       {% for post in paginator.posts %}
-        {% include library-article-content.html %}
+        {% include article-content.html %}
       {% endfor %}
     {% endif %}
   </div>
