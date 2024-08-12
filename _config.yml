@@ -15,6 +15,9 @@ plugins:
 paginate: 8
 paginate_path: "/page/:num"
 
+library_paginate: 8
+library_paginate_path: "/library/page/:num"
+
 # Pages Path
 defaults:
   - scope:

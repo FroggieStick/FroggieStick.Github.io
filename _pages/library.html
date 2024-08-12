@@ -31,7 +31,7 @@ image: '/images/library03.jpg'
 <!-- begin page content -->
 <div class="container">
   <div class="row grid">
-    {% if site.posts.size > 0 %}
+    {% if paginator.posts.size > 0 %}
       {% for post in paginator.posts %}
         <div class="library-article col">
           <div class="library-article__inner">
@@ -89,7 +89,15 @@ image: '/images/library03.jpg'
     {% endif %}
   </div>
 
-  <!-- Pagination -->
-  {% include pagination.html %}
+  <!-- Library Pagination -->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__prev">Previous</a>
+    {% endif %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination__next">Next</a>
+    {% endif %}
+  </div>
 </div>
 <!-- end page content -->
