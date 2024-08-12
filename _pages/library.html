@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: library-page
 title: The Library
 permalink: /library/
 image: '/images/library03.jpg'
@@ -9,7 +9,7 @@ image: '/images/library03.jpg'
     <div class="row grid">
       {% if site.posts.size > 0 %}
         {% for post in paginator.posts %}
-          {% include article-content.html %}
+          {% include library-article-content.html %}
         {% endfor %}
       {% endif %}
     </div>
