@@ -41,7 +41,6 @@ layout: default
             <div class="post__bottom-meta">
               <a href="{{ '/about/' | relative_url }}" class="post__author-link">{{ site.data.settings.author.name }}</a>
               {% if page.tags.size >= 1 %}
-              <span>in</span>
               <span class="post-tags">
                 {% for tag in page.tags %}
                 <a href="{{ site.baseurl }}/tags/?tag={{ tag | downcase | url_encode }}" class="post__tag">{{ tag }}</a>
